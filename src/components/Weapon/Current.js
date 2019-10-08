@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Tooltip from './../Tooltip.js';
 // import { buildStats, enhanceStatsWithPlugs } from './../../utils/stats.js';
 
 class Current extends Component {
@@ -57,11 +58,18 @@ class Current extends Component {
 											${ perks[perk].isIntrinsic ? 'frame ' : '' }
 											node`
 										}>
-											<div className='perk-icon'>
+											<div className='perk-icon' data-for={`getContent-current-${perkDef.hash}`} data-tip>
 												<img 
 													src={ `https://bungie.net${perkDef.displayProperties.icon}` } 
 													alt={`Destiny 2 Perk - ${perkDef.displayProperties.name}`} />
 											</div>
+											<Tooltip 
+												hash={ `current-${perkDef.hash}` }
+												title={ perkDef.displayProperties.name }
+												subtitle={ perkDef.itemTypeDisplayName }
+												description={ perkDef.displayProperties.description }
+												stats={ perkDef.investmentStats.length > 0 ? perkDef.investmentStats : null }
+											/>
 										</li>
 									)
 								} else {
@@ -82,8 +90,14 @@ class Current extends Component {
 						{
 							masterwork.hash !== 0 
 								? <React.Fragment>
-										<div className="mw-icon"><img src={`https://bungie.net${masterwork.displayProperties.icon}`} alt="" /></div>
-										{/* <div className="mw-label">{ this.buildMWName(masterwork.plug.plugCategoryIdentifier) }</div> */}
+										<div className="mw-icon" data-for={`getContent-current-${masterwork.hash}`} data-tip><img src={`https://bungie.net${masterwork.displayProperties.icon}`} alt="" /></div>
+										<Tooltip 
+											hash={ `current-${masterwork.hash}` }
+											title={ masterwork.displayProperties.name }
+											subtitle={ masterwork.itemTypeDisplayName }
+											description={ masterwork.displayProperties.description }
+											stats={ masterwork.investmentStats.length > 0 ? masterwork.investmentStats : null }
+										/>
 									</React.Fragment>
 								: <React.Fragment>
 										<div className="mw-icon"><img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" /></div>
@@ -94,7 +108,14 @@ class Current extends Component {
 						{
 							mod.hash !== 0 
 								? <React.Fragment>
-										<div className="mod-icon"><img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[mod.hash].displayProperties.icon}`} alt="" /></div>
+										<div className="mod-icon" data-for={`getContent-current-${mod.hash}`} data-tip><img src={`https://bungie.net${mod.displayProperties.icon}`} alt="" /></div>
+										<Tooltip 
+											hash={ `current-${mod.hash}` }
+											title={ mod.displayProperties.name }
+											subtitle={ mod.itemTypeDisplayName }
+											description={ mod.displayProperties.description }
+											stats={ mod.investmentStats.length > 0 ? mod.investmentStats : null }
+										/>
 									</React.Fragment>
 								: <React.Fragment>
 										<div className="mod-icon"><img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" /></div>

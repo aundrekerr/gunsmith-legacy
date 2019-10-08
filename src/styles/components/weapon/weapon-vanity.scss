@@ -25,8 +25,11 @@
 		z-index: 999;
 		box-shadow: 0px 10px 20px -10px rgba(black, 1);
 		align-self: auto;
-		overflow: hidden;
 		padding: 0.5rem;
+	}
+
+	@include media('<lg') {
+		overflow: hidden;
 	}
 
 	&.kinetic { border-color: var(--color__bungie-white); }

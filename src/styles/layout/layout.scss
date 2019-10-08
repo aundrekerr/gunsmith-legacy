@@ -34,7 +34,7 @@ main {
 
 	.weapon__container {
 		width: 990px;
-		z-index: 1;
+		z-index: 10;
 
 		@include media('>=lg') {
 			max-width: 78.26vw;

@@ -4,7 +4,7 @@ main.main-content {
 	background-attachment: fixed;
 	background-position: center left;
 
-	&:before {
+	&:after {
 		content: '';
 		position: absolute;
 		top: 0;
