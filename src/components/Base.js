@@ -24,7 +24,7 @@ class Base extends Component {
 		const { manifestLoaded } = this.props;
 		return (
 			!manifestLoaded 
-				? null
+				? <Loading />
 				: <React.Fragment>
 					<Header />
 					<main className="main-content" style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/empty-background.jpg'}`}}>
@@ -47,3 +47,12 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { fetchManifest, storeManifestStatus })(Base);
+
+
+const Loading = (props) => {
+	return (
+		<div className="loading">
+			loading <br/> I should build a proper loading state for this, huh
+		</div>
+	)
+}
