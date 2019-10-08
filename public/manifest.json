@@ -1,0 +1,25 @@
+{
+  "short_name": "Gunsmith",
+  "name": "Gunsmith, Destiny 2 Weapon Roll Builder",
+  "icons": [
+    {
+      "src": "gunsmith_logo-192.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "gunsmith_logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "gunsmith_logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }	    
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#b78c25",
+  "background_color": "#181d25"
+}

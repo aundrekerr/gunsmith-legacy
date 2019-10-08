@@ -1,0 +1,47 @@
+#root {
+	display: flex;
+	height: 100%;
+
+	@include media('<lg') {
+		flex-direction: column;
+	}
+}
+
+header.app__header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-grow: 1;
+
+	.header__container {
+		width: 275px;
+
+		@include media('>=lg') {
+			max-width: 21.74vw;
+		}
+
+		@include media('<lg') {
+			width: 100%;
+		}
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-grow: 1;
+
+	.weapon__container {
+		width: 990px;
+		z-index: 1;
+
+		@include media('>=lg') {
+			max-width: 78.26vw;
+		}
+
+		@include media('<lg') {
+			width: 100%;
+		}
+	}
+}

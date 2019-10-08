@@ -1,0 +1,55 @@
+.weapon__current-mod {
+	.mod-icon {
+		position: relative;
+		display: flex;
+		max-width: 44px;
+		box-shadow: 0 0 0 2px rgba(#f5f5f5, 0.6);
+		transition: 
+			color 0.2s var(--transition_cubic_bezier), 
+			border-color 0.2s var(--transition_cubic_bezier),
+			background-color 0.2s var(--transition_cubic_bezier);
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: var(--color__bungie-white);
+			opacity: 0;
+		}
+
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: -3px;	
+			left: -3px;
+			pointer-events: none;
+			box-shadow: 0 0 0 2px var(--color__bungie-white);
+			width: calc(100% + 6px);
+			height: calc(100% + 6px);
+			opacity: 0;
+			transform: scale(1.1);
+			transition: 
+				opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1),
+				transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+		}
+
+		&:hover {
+			&:before {
+				opacity: 0.15;
+			}
+
+			&:after {
+				opacity: 0.8;
+				transform: scale(1);
+			}
+		}
+
+		@include media('<lg') {
+			align-items: flex-start;
+		}
+	}
+}

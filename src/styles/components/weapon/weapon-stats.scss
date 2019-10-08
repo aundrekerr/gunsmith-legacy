@@ -1,0 +1,232 @@
+.weapon__stats {
+
+	ul.stat-list {
+		list-style-type: none;
+		padding: 0;
+		margin: 1rem 0 0;
+		width: 72.5%;
+
+		@include media('<lg') {
+			width: 100%;
+			column-count: 2;
+		}
+	}
+
+	li.stat__container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-bottom: 0.25rem;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+
+	.stat__name {
+		font-size: 0.8rem;
+		padding-right: 0.5rem;
+		flex-basis: 30%;
+		text-align: right;
+		text-shadow: 0 3px 5px rgba(10,10,10, 1);
+
+		@include media('<lg') {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			letter-spacing: -0.5px;
+		}
+	}
+
+	.stat__data {
+		position: relative;
+		flex-basis: 70%;
+
+		.stat__value {
+			&.positive {
+				color: var(--color__game-positive);
+			}
+
+			&.negative {
+				color: var(--color__game-negative);
+			}
+		}
+
+		&.num .stat__value {
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				right: -1rem;
+				width: 0;
+				height: 0;
+				border-left: 0.3rem solid transparent;
+				border-right: 0.3rem solid transparent;
+			}
+			
+			&.positive {
+				color: var(--color__game-positive_light);
+				&:before {
+					border-bottom: 0.6rem solid var(--color__game-positive);
+				}
+
+				&.reverse:before {
+					border-top: 0.6rem solid var(--color__game-positive);
+					border-bottom: none;
+				}
+			}
+
+			&.negative {
+				color: var(--color__game-negative_light);
+				&:before {
+					border-top: 0.6rem solid var(--color__game-negative);
+				}
+
+				&.reverse:before {
+					border-top: none;
+					border-bottom: 0.6rem solid var(--color__game-negative);
+				}
+			}
+		}
+
+		.progress {
+			position: relative;
+			display: block;
+			width: 100%;
+			height: 1.2rem;
+			background: transparent;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			border: none;
+			animation: progress 0.5s ease-in-out forwards;
+			-webkit-animation: progress 0.5s ease-in-out forwards;
+
+			> i {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				z-index: 1;
+			}
+		}
+
+		.progress.main {
+			&:before {
+				content: attr(data-value);
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				color: var(--color__bungie-medium_blue);
+				padding-left: 0.25rem;
+				font-style: normal;
+				font-size: 0.9rem;
+				line-height: 1.15rem;
+				z-index: 2;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;	
+				display: block;
+				background: rgba(#ffffff, 0.2);
+			}
+	
+			> i {
+				background: var(--color__bungie-white);
+				transition: width 0.5s var(--transition_cubic_bezier);
+			}
+		}
+
+		.progress.modifier {
+			position: absolute;
+			top: 0;
+
+			> i {
+				transition: 
+					background 0.5s var(--transition_cubic_bezier),
+					width 0.5s var(--transition_cubic_bezier);
+			}
+
+			&.neutral {
+				opacity: 0;
+				transition: none;
+				
+				> i {
+					background: var(--color__bungie-white);
+				}
+			}
+
+			&.positive {
+				opacity: 1;
+				
+				> i {
+					background: var(--color__game-positive);
+				}
+			}
+
+			&.negative {
+				opacity: 1;
+				transform: rotate(180deg);
+
+				> i {
+					background: var(--color__game-negative);
+				}
+			}
+		}
+
+
+
+		.progress.masterwork {
+			position: absolute;
+			top: 0;
+
+			> i {
+				background: var(--color__bungie-gold);
+				transition: 
+					background 0.5s var(--transition_cubic_bezier),
+					width 0.5s var(--transition_cubic_bezier);
+			}
+		}
+
+		span.benefit-value {
+			position: absolute;
+			top: 0;
+			left: 1.5rem;
+			display: block;
+			color: var(--color__bungie-medium_blue);
+			padding-left: 0.4rem;
+			font-style: normal;
+			font-size: 0.75rem;
+			line-height: 1.2rem;
+			z-index: 1;
+			opacity: 1;
+			transition: 
+					opacity 0.3s var(--transition_cubic_bezier);
+
+			&.neutral {
+				opacity: 0;
+				display: none;
+			}
+
+			&.positive {
+				opacity: 1;
+				color: var(--color__game-positive);
+				filter: brightness(0.55);
+			}
+
+			&.negative {
+				opacity: 1;
+				color: var(--color__game-negative);
+				filter: brightness(0.55);
+			}
+		}
+	}
+}

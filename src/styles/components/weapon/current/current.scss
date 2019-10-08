@@ -1,0 +1,52 @@
+.weapon__current {
+
+	.apply-to-stats {
+		@include button(
+			$bg-color: var(--color__bungie-gold),
+			$border-color: var(--color__bungie-gold),
+		);
+		background: rgba(#b78c25, 0.3);
+		cursor: pointer;
+		font-weight: lighter;
+		font-size: 0.8rem;
+	}
+}
+
+// $text-color: var(--color__bungie-white), 
+// 	$bg-color: var(--color__bungie-white),
+// 	$border-color: var(--color__bungie-white),
+
+.current__benefits-wrapper {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 0.5rem;
+	background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path fill="%23fff" fill-opacity=".2" d="M0 9h19v1H0z"/><path fill="%23fff" fill-opacity=".2" d="M9 0h1v19H9z"/></svg>');
+	background-position: center;
+	margin-bottom: 1rem;
+
+	@include media('<xl') {
+		br {
+			display: none;
+		}
+	}
+}
+
+.weapon__current-perks {
+	width: 100%;
+	margin-bottom: 0.5rem;
+
+	@include media('<xl', '>=lg') {
+		width: auto;
+	}
+}
+
+.weapon__current-mod {
+	// margin-bottom: 1rem;
+	padding: 0.25rem 0;
+}
+
+.weapon__current-masterwork {
+	// margin-bottom: 1rem;
+	margin-right: 0.75rem;
+	padding: 0.25rem;
+}

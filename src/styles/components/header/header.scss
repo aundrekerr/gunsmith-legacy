@@ -1,0 +1,29 @@
+header.app__header {
+	background: var(--color__bungie-medium_blue);
+	box-shadow: 0 0 20px rgba(15,15,15, 0.3);
+	position: sticky;
+	top: 0;
+	height: 100vh;
+
+	@include media('<lg') {
+		height: auto;
+		z-index: 99;
+	}
+}
+
+// .header__container {
+	
+// }
+
+.app__logo {
+	text-align: right;
+	padding: 0.5rem;
+	background: rgb(18,23,28);
+	background: linear-gradient(270deg, rgba(15,15,15,1) 0%, rgba(24,29,37,1) 95%, rgba(24,29,37,1) 100%);
+
+	span {
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 1.4rem;
+	}
+}

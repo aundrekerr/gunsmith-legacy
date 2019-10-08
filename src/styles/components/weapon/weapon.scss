@@ -1,0 +1,106 @@
+.weapon__wrapper {
+	// width: 60%;
+	max-width: 100%;
+	margin: 1rem 1rem 1rem 1.5rem;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: 1.52fr 0.7fr 0.4fr 1fr;
+	grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
+	grid-template-areas: 
+		"vanity vanity vanity current"
+		"perks masterwork masterwork masterwork"
+		"perks mods mods mods"
+		"perks . . .";
+
+	&.empty {
+		position: relative;
+		z-index: 1;
+		display: block;
+		padding: 1rem;
+		margin: 1rem 30% 1rem 1rem;
+		background: rgba(#0a0a0a, 0.8);
+		color: white;
+
+		span.underline {
+			display: inline-block;
+			color: var(--color__bungie-yellow);
+		}
+
+		p {
+			color: white;
+		}
+	}
+
+	@include media('<xl') {
+		grid-template-areas: 
+			"vanity vanity vanity vanity"
+			"current current current current"
+			"perks mods mods mods"
+			"perks masterwork masterwork masterwork";
+
+		&.empty {
+			display: block;
+			padding: 1rem;
+			margin: 1rem 0;
+		}
+	}
+
+	@include media('<lg') {
+		&.empty {
+			width: calc(100% - 4rem);
+			margin: 1rem;
+			min-height: 100vh;
+		}
+	}
+
+	@include media('<lg') {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin: 0;
+	}
+}
+
+.weapon__tab {
+	padding: 1rem;
+	background-color: var(--color__bungie-medium_blue);
+	box-shadow: 0 0 40px 0 rgba(0,0,0,0.5);	
+
+	@include media('<md') {
+		align-self: auto;
+		width: calc(100% - 2rem);
+	}
+
+	> span {
+		display: block;
+		padding: 0.5rem 0;
+	}
+}
+
+.weapon__current { 
+	grid-area: current;
+}
+
+.weapon__mods { 
+	grid-area: mods;
+	align-self: flex-start;
+
+	@include media('<xl') {
+		align-self: auto;
+	}
+}
+
+.weapon__masterworks { 
+	grid-area: masterwork;
+	align-self: flex-start;
+}
+
+.weapon__vanity { 
+	grid-area: vanity;
+	align-self: flex-start;
+}
+
+.weapon__perks { 
+	grid-area: perks;
+	align-self: flex-start;
+}

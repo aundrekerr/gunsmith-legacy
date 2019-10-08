@@ -1,0 +1,133 @@
+.weapon__perks {
+
+	.perk-grid__wrapper {
+		display: flex;
+		justify-content: flex-start;
+		padding: 0.5rem 1rem;
+		background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path fill="%23fff" fill-opacity=".2" d="M0 9h19v1H0z"/><path fill="%23fff" fill-opacity=".2" d="M9 0h1v19H9z"/></svg>');
+	}
+
+	ul.perk-grid__column {
+		list-style-type: none;
+		padding: 0;
+		margin: 0 0.5rem 0 0;
+
+		&:first-of-type li.node {
+			cursor: auto;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		li.node {
+			// position: relative;
+			padding: 0.25rem;
+			margin-bottom: 0.5rem;
+			cursor: pointer;
+			-webkit-user-select: none; /* Chrome/Safari */        
+			-moz-user-select: none; /* Firefox */
+			-ms-user-select: none;
+
+			&:after {
+				content: '';
+				display: block;
+				width: 44px;
+				padding-bottom: 100%;
+			}
+			
+			&.curated .perk-icon:before { border: 2px solid rgba(#b78c25, 0.6); }
+			&.curated .perk-icon:after { border: 1px solid #b78c25; }
+			// &.curated-only .perk-icon:before { border: 2px solid rgba(#973835, 0.6); }
+			
+			&.curated-only .perk-icon:after { border: 1px solid #973835; }
+			&.active .perk-icon:before { background: var(--color__bungie-active); }
+			&.active.curated-only .perk-icon:before { border: 2px solid #973835; }
+
+			&.frame {
+				.perk-icon:before,
+				.perk-icon:after {
+					content: none;
+				}
+
+				li {
+					padding: 0;
+				}
+
+				.perk-icon img {
+					max-width: 100%;
+					width: auto;
+				}
+			}
+
+			&:hover {
+				.perk-icon:before { background: rgba(#f5f5f5, 0.3); }
+				&.curated .perk-icon:before { background: rgba(#b78c25, 0.3); }
+				&.active.curated .perk-icon:before { background: rgba(#518dba, 1); }
+				&.curated .perk-icon:after { border: 1px solid #b78c25; }
+				&.curated-only .perk-icon:before { background: rgba(#973835, 0.3); }
+				&.active.curated-only .perk-icon:before { background: rgba(#518dba, 1); }
+				&.curated-only .perk-icon:after { border: 1px solid #973835; }
+
+				.perk-icon:after {
+					opacity: 1;
+				}
+
+				.perk-info {
+					display: block;
+					opacity: 1;
+				}
+			}
+
+			&.active .perk-icon:before {
+				background: #518dba;
+			}
+		}
+	}
+
+	.perk-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		width: 44px;
+		height: 44px;
+		position: absolute;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			padding-bottom: 100%;
+			background: rgba(#f5f5f5, 0);
+			border: 2px solid rgba(#f5f5f5, 0.6);
+			border-radius: 50%;
+			z-index: 1;
+			transition: background 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+			pointer-events: none;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: calc(100% + 9px);
+			padding-bottom: calc(100% + 9px);
+			border: 1px solid #f5f5f5;
+			border-radius: 50%;
+			opacity: 0;
+			transition: opacity 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+			pointer-events: none;
+		}
+
+		img {
+			max-width: calc(100% - 0.75rem);
+			z-index: 2;
+		}
+	}
+}

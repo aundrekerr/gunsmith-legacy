@@ -1,0 +1,13 @@
+.search__wrapper {
+	position: relative;
+	padding-right: 1rem;
+
+	@include media('<xl') {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	@include media('<lg') {
+		// height: calc(100vh - 1.5rem);
+	}
+}

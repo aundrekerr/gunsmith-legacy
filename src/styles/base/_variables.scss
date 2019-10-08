@@ -1,0 +1,48 @@
+@import url("https://use.typekit.net/crz0tos.css");
+
+:root {
+	--color__game-common:				#a7a7a7;
+	--color__game-uncommon:				#346e3b;
+	--color__game-rare:					#5176a4;
+	--color__game-legendary:			#522f65; 
+	--color__game-exotic:				#cdae33; 
+	--color__game-dark: 				#141414;
+	--color__game-active: 				#518dba;
+	--color__game-positive: 			#5aa366;
+	--color__game-negative: 			#973835;
+	--color__game-positive_light: 		#68cc79;
+	--color__game-negative_light: 		#e25954;
+	--color__game-positive_dark: 		#33613a;
+	--color__game-negative_dark: 		#5c2321;
+
+	--color__game-solar: 				#f1631e;
+	--color__game-solar_dark: 			#c75218;
+	--color__game-arc: 					#79bbe8;
+	--color__game-arc_dark: 			#538eb5;
+	--color__game-void: 				#c690dc;
+	--color__game-void_dark: 			#915da6;
+
+	--color__bungie-yellow: 			#ffce1f;
+	--color__bungie-gold: 				#b78c25;
+	--color__bungie-white: 				#f5f5f5;
+	--color__bungie-dark_blue: 			#12171c;
+	--color__bungie-medium_blue:		#181d25;
+
+	--font__primary: 					'neue-haas-grotesk-text,sans-serif', sans-serif;
+	--font__secondary: 					'neue-haas-grotesk-text,sans-serif', sans-serif;
+
+	--color__system-black: 				#0a0a0a;
+	--color__system-white: 				#fafafa;
+	--color__system-light_grey: 		#EBEBEB;
+	--color__system-medium_grey: 		#D6D6D6;
+	--color__system-dark_grey: 			#BDBDBD;
+	--color__system-pink: 				#cc81aa;
+	--color__system-red: 				#BD2A45;
+	--color__system-orange: 			#FABF74;
+	--color__system-yellow: 			#DED092;
+	--color__system-green:				#2eec96;
+	--color__system-blue: 				#00acd7;
+	--color__system-purple:				#703994;
+
+	--transition_cubic_bezier: 			cubic-bezier(0.19, 1, 0.22, 1);
+}
