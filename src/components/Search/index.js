@@ -59,7 +59,7 @@ class Search extends Component {
 		let { userInput } = this.state;
 
 		// If the input field sends over data, make that the new input data to filter with.
-		if (input) userInput = input;	
+		userInput = input;	
 		
 		// If a select field sends over a new filter, update the settings here.
 		if ( from.hasOwnProperty('rarity') ) rarity = from.rarity;

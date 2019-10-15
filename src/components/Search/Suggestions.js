@@ -44,7 +44,7 @@ class Suggestions extends Component {
 			weaponList,
 			filteredSuggestions,
 			showSuggestions,
-			userInput,
+			// userInput,
 			onSuggestionClick,
 		} = this.props;
 
@@ -60,7 +60,7 @@ class Suggestions extends Component {
 		return (
 			<div className="search__suggestions">
 				{
-					showSuggestions && userInput 
+					showSuggestions
 						? filteredSuggestions.length 
 							? <SuggestionList 
 								filteredSuggestions={ filteredSuggestions }
