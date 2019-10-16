@@ -8,6 +8,21 @@
 	}
 
 	@include media('<lg') {
-		// height: calc(100vh - 1.5rem);
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 80%;
+		max-height: 100vh;
+		overflow-y: scroll;
+		background: var(--color__bungie-dark_blue);
+		transition: left 0.3s var(--transition_cubic_bezier);
+
+		&.show {
+			left: 0%;
+		}
+	
+		&.hide {
+			left: -105%;
+		}
 	}
 }

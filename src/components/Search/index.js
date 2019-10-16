@@ -20,13 +20,6 @@ class Search extends Component {
 			currentRarity: null,
 			currentWeaponType: 0,
 			currentDamage: 0,
-
-			filterView: 'hide',
-			toggleFilter: () => {
-				this.setState(({ filterView }) => ({
-					filterView: filterView === 'hide' ? 'show' : 'hide'
-				}))
-			},
 		}
 	}
 
@@ -131,7 +124,7 @@ class Search extends Component {
 			})
 		}
 
-		// console.log()
+		this.props.toggleMenu();
 	}
 
 	getRefData = () => {
@@ -161,23 +154,20 @@ class Search extends Component {
 				currentRarity,
 				currentWeaponType,
 				currentDamage,
-				filterView,
-				toggleFilter,
 			},
 			props: {
-				manifestLoaded
+				manifestLoaded,
+				menuView
 			}
 		} = this;
 		
 		return (
-			<div className="search__wrapper">
+			<div className={`search__wrapper ${menuView}`}>
 				<SearchInput 
 					onInputChange={ onInputChange }
 					userInput={ userInput }
 					manifestLoaded={ manifestLoaded }
 					inputRef={el => this.inputElem = el}
-					filterView={ filterView }
-					toggleFilter={ toggleFilter }
 				/>
 				<Filters 
 					changeRarity={ changeRarity }

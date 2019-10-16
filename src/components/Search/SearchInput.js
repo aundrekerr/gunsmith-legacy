@@ -6,28 +6,22 @@ const SearchInput = (props) => {
 		onInputChange,
 		userInput,
 		manifestLoaded,
-		toggleFilter,
-		filterView,
 	} = props;
 	
 	return (
 		<React.Fragment>
-			<div className={`search__input filter-${window.innerWidth >= 992 ? 'hide' : 'show'}`} ref={props.inputRef}>
+			<div className="search__input" ref={props.inputRef}>
 				<input
 					type='text'
 					onChange={ onInputChange }
 					value={ userInput }
-					placeholder='Find a weapon.'
+					placeholder='Find a weapon'
 					id='search'
 					disabled={ manifestLoaded === false ? true : false }
 					autoComplete="off"
 				/>
+				<i className="icon"></i>
 			</div>
-			<i 
-				onClick={() => toggleFilter()}
-				className={`filter-toggle ${filterView}`}
-			>
-			</i>
 		</React.Fragment>
 	)
 }

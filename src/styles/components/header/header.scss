@@ -26,4 +26,68 @@ header.app__header {
 		font-weight: bold;
 		font-size: 1.4rem;
 	}
+
+	.menu-icon__wrapper {
+		position: relative;
+		// top: 0.65rem;
+		// right: 1rem;
+		padding: 0.75rem 1rem;
+	}
+
+	i.menu-icon {
+		position: absolute;
+		top: 0.15rem;
+		left: 0;
+		transition-duration: 0.3s;
+		width: 30px;
+		height: 2px;
+		background-color: var(--color__bungie-white);
+		
+		&:before,
+		&:after {
+			content: "";
+			border-radius: 0px;
+			transition-duration: 0.5s;
+			content: "";
+			position: absolute;
+			top: 8px;
+			left: 0;
+			background-color: var(--color__bungie-white);
+			width: 30px;
+			height: 2px;
+		}
+
+		&:after {
+			top: 16px;
+		}
+		&.show {
+			width: 0;
+			background-color: var(--color__bungie-gold);
+
+			&:after {
+				top: 8px;
+				transform: rotate(45deg);
+				background-color: var(--color__bungie-gold);
+			}
+			&:before {
+				transform: rotate(-45deg);
+				background-color: var(--color__bungie-gold);
+			}
+		}
+	}
+
+	@include media('>=lg') {
+		.menu-icon__wrapper { display: none; }
+	}
+
+	@include media('<lg') {
+		text-align: left;
+		background: linear-gradient(90deg, rgba(15,15,15,1) 0%, rgba(24,29,37,1) 95%, rgba(24,29,37,1) 100%);
+		display: flex;
+		justify-content: space-between;
+
+		.menu-icon__wrapper {
+			display: block;
+		}
+	}
 }

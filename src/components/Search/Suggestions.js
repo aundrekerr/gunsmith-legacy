@@ -68,14 +68,12 @@ class Suggestions extends Component {
 								onSuggestionClick={ onSuggestionClick } 
 								sugHeight={ sugHeight }/>
 							: <SuggestionListEmpty />
-						: window.innerWidth >= 992
-							? curated
-								? <CuratedList 
-									curatedList={ curated }
-									manifest={ manifest }
-									onSuggestionClick={ onSuggestionClick } 
-									sugHeight={ sugHeight }/> 
-								: null
+						: curated
+							? <CuratedList 
+								curatedList={ curated }
+								manifest={ manifest }
+								onSuggestionClick={ onSuggestionClick } 
+								sugHeight={ sugHeight }/> 
 							: null
 				}
 			</div>
