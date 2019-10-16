@@ -63,10 +63,11 @@ class Search extends Component {
 
 		// Set the current collection object.
 		let currentCollection = collections.filter(col => col.name === collection )[0];
+		if ( !currentCollection ) currentCollection = { name: 'Any', weapons: [] }
 
 		// Filter through the full weapons list based on the select field filters.
 		let filteredList = weaponList;
-		if (collection) filteredList = filteredList.filter(weapon => currentCollection.weapons.includes(weapon.hash));
+		if (currentCollection.weapons.length > 0) filteredList = filteredList.filter(weapon => currentCollection.weapons.includes(weapon.hash));
 		if (rarity) filteredList = filteredList.filter(weapon => { return weapon.inventory.tierTypeHash === rarity });
 		if (weaponType) filteredList = filteredList.filter(weapon => { return weapon.itemSubType === weaponType });
 		if (damage) filteredList = filteredList.filter(weapon => { return weapon.defaultDamageTypeHash === damage });
@@ -75,6 +76,7 @@ class Search extends Component {
 		// Filter through what's left based on the input field.
 		let suggestions = filteredList.filter( suggestion => (suggestion.displayProperties.name).toLowerCase().indexOf(userInput.toLowerCase()) > -1 );
 
+		suggestions = suggestions.sort((a, b) => a.displayProperties.name.toLowerCase().localeCompare(b.displayProperties.name.toLowerCase()) )
 		// Set the new list and give the OK to display the suggestions.
 		this.setState({
 			filteredSuggestions: suggestions,
@@ -94,7 +96,6 @@ class Search extends Component {
 	// Filters.js
 	changeCollection = (e) => {
 		let toStore = e.target.value;
-		console.log(toStore)
 		this.setState({ currentCollection: toStore }); 
 		this.props.storeCollection(toStore);
 		this.updateSuggestions(this.state.userInput, { collection: toStore });
@@ -135,7 +136,7 @@ class Search extends Component {
 			this.setState({
 				activeSuggestion: 0,
 				filteredSuggestions: [],
-				showSuggestions: false,
+				// showSuggestions: false,
 				userInput: ''
 			})
 		}
