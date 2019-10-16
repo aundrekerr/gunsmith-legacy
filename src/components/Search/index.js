@@ -6,7 +6,8 @@ import SearchInput from './SearchInput';
 import Filters from './Filters';
 import Suggestions from './Suggestions';
 import { storeWeapon, storePerks, storeMod, storeMasterwork } from './../../actions/weaponActions';
-import { storeRarity, storeWeaponType, storeDamage } from './../../actions/filterActions';
+import { storeCollection, storeRarity, storeWeaponType, storeDamage } from './../../actions/filterActions';
+import collections from './../../utils/custom-data/weaponSets.js';
 
 class Search extends Component {
 	constructor(props) {
@@ -48,22 +49,28 @@ class Search extends Component {
 
 	updateSuggestions = (input, from = {}) => {
 		const { weaponList } = this.state;
-		let { rarity, weaponType, damage } = this.props.filters;
+		let { collection, rarity, weaponType, damage } = this.props.filters;
 		let { userInput } = this.state;
 
 		// If the input field sends over data, make that the new input data to filter with.
 		userInput = input;	
 		
 		// If a select field sends over a new filter, update the settings here.
+		if ( from.hasOwnProperty('collection') ) collection = from.collection;
 		if ( from.hasOwnProperty('rarity') ) rarity = from.rarity;
 		if ( from.hasOwnProperty('weaponType') ) weaponType = from.weaponType;
 		if ( from.hasOwnProperty('damage') ) damage = from.damage;
 
+		// Set the current collection object.
+		let currentCollection = collections.filter(col => col.name === collection )[0];
+
 		// Filter through the full weapons list based on the select field filters.
 		let filteredList = weaponList;
+		if (collection) filteredList = filteredList.filter(weapon => currentCollection.weapons.includes(weapon.hash));
 		if (rarity) filteredList = filteredList.filter(weapon => { return weapon.inventory.tierTypeHash === rarity });
 		if (weaponType) filteredList = filteredList.filter(weapon => { return weapon.itemSubType === weaponType });
 		if (damage) filteredList = filteredList.filter(weapon => { return weapon.defaultDamageTypeHash === damage });
+
 
 		// Filter through what's left based on the input field.
 		let suggestions = filteredList.filter( suggestion => (suggestion.displayProperties.name).toLowerCase().indexOf(userInput.toLowerCase()) > -1 );
@@ -85,6 +92,13 @@ class Search extends Component {
 	}
 
 	// Filters.js
+	changeCollection = (e) => {
+		let toStore = e.target.value;
+		console.log(toStore)
+		this.setState({ currentCollection: toStore }); 
+		this.props.storeCollection(toStore);
+		this.updateSuggestions(this.state.userInput, { collection: toStore });
+	}
 	changeRarity = (e) => {
 		let toStore = e.target.value === 0 ? null : parseInt(e.target.value);
 		this.setState({ currentRarity: toStore }); 
@@ -103,8 +117,10 @@ class Search extends Component {
 		this.props.storeDamage(toStore);
 		this.updateSuggestions(this.state.userInput, { damage: toStore });
 	}
-	
 
+
+	
+	
 	onSuggestionClick = (hash) => {
 		// console.log(hash)
 		this.props.storeWeapon(hash);	
@@ -141,6 +157,7 @@ class Search extends Component {
 	render() {
 		const {
 			onInputChange,
+			changeCollection,
 			changeRarity,
 			changeWeaponType,
 			changeDamage,
@@ -170,6 +187,7 @@ class Search extends Component {
 					inputRef={el => this.inputElem = el}
 				/>
 				<Filters 
+					changeCollection={ changeCollection }
 					changeRarity={ changeRarity }
 					changeWeaponType={ changeWeaponType }
 					changeDamage={ changeDamage }
@@ -193,6 +211,7 @@ class Search extends Component {
 
 Search.propTypes = {
 	storeWeapon: PropTypes.func.isRequired,
+	storeCollection: PropTypes.func.isRequired,
 	storeRarity: PropTypes.func.isRequired,
 	storeWeaponType: PropTypes.func.isRequired,
 	storeDamage: PropTypes.func.isRequired,
@@ -207,5 +226,5 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, { 
 	storeWeapon, storePerks, storeMod, storeMasterwork,
-	storeRarity, storeWeaponType, storeDamage,
+	storeCollection, storeRarity, storeWeaponType, storeDamage,
 })(Search);

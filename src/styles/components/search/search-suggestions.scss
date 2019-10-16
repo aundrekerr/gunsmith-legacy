@@ -37,8 +37,8 @@ ul.suggestions-list {
 	}
 
 	@include media('<lg') {
-		width: 100%;
-		left: 0;
+		width: calc(100% - 1rem);
+		left: 0.5rem;
 	}
 
 	li {

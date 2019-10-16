@@ -7,12 +7,17 @@ ul.search__filters {
 	margin: 0 0 1rem;
 
 	@include media('<lg') {
-		// display: none;
+		flex-flow: row wrap;
 	}
 
 	li {
 		width: 100%;
 		margin-bottom: 0.5rem;
+
+		@include media('<lg') {
+			width: calc(50% - 1rem);
+			margin: 0 0.5rem;
+		}
 	}
 
 	label {
@@ -36,6 +41,10 @@ ul.search__filters {
 			display: block;
 			text-transform: uppercase;
 			padding: 0.5rem 0;
+
+			@include media('<lg') {
+				letter-spacing: 0;
+			}
 		}
 	}
 

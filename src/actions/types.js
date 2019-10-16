@@ -7,6 +7,7 @@ export const STORE_PERKS = 'STORE_PERKS';
 export const STORE_MOD = 'STORE_MOD';
 export const STORE_MW = 'STORE_MW';
 
+export const STORE_COLLECTION = 'STORE_COLLECTION';
 export const STORE_RARITY = 'STORE_RARITY';
 export const STORE_WEAPON_TYPE = 'STORE_WEAPON_TYPE';
 export const STORE_DAMAGE = 'STORE_DAMAGE';

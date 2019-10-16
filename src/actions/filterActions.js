@@ -1,7 +1,14 @@
 // import store from './../utils/store.js';
-import { STORE_RARITY, STORE_WEAPON_TYPE, STORE_DAMAGE, } from './types';
+import { STORE_COLLECTION, STORE_RARITY, STORE_WEAPON_TYPE, STORE_DAMAGE, } from './types';
 
 // const state = store.getState();
+
+export const storeCollection = (collection) => dispatch => {
+	dispatch({
+		type: STORE_COLLECTION,
+		payload: collection
+	})
+};
 
 export const storeRarity = (rarityHash) => dispatch => {
 	dispatch({

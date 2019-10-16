@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-
+import collections from './../../utils/custom-data/weaponSets.js';
 
 class SearchFilter extends Component {
 	
@@ -11,6 +10,7 @@ class SearchFilter extends Component {
 
 		this.state = {
 			currentList: this.props.weaponList,
+			currentCollection: null,
 			currentRarity: null,
 			currentWeaponType: 0,
 			currentDamage: 0,
@@ -59,9 +59,11 @@ class SearchFilter extends Component {
 				weaponRarity,
 			},
 			props: {
+				changeCollection,
 				changeRarity,
 				changeWeaponType,
 				changeDamage,
+				currentCollection,
 				currentRarity,
 				currentWeaponType,
 				currentDamage,
@@ -70,19 +72,16 @@ class SearchFilter extends Component {
 		
 		return (
 			<ul className="search__filters" ref={this.props.filtersRef}>
-				{/* <li>
-					<label htmlFor="collection">
-						<span>Collection</span>
-						<select name="collection">
-							<option value="All">All</option>
-							{ yearTwo.map((set, index) => {
-								return (
-									<option value={set.hash} key={index}>{ set.name }</option>
-								)
-							}) }
-						</select>
+				<li>
+					<label htmlFor="weapon-collection">
+						<span className="tracked-wide small">Collection</span>
+						<CollectionSelect 
+							collectionList={ collections } 
+							changeCollection={changeCollection }
+							currentCollection={ currentCollection }
+						/>
 					</label>
-				</li> */}
+				</li>
 				<li>
 					<label htmlFor="weapon-rarity">
 						<span className="tracked-wide small">Rarity</span>
@@ -124,6 +123,29 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {  })(SearchFilter);
 
+
+// Collection 
+const CollectionSelect = (props) => {
+	const { collectionList, changeCollection, currentCollection } = props;
+	return (
+		<select 
+			name="damage-type" 
+			onChange={ changeCollection } 
+			value={ currentCollection === null ? 0 : currentCollection }
+		>
+			{collectionList.map((col, index) => {
+				return (
+					<option 
+						value={ col.name } 
+						key={ index }
+					>
+						{ col.name }
+					</option>
+				)
+			})}
+		</select>
+	)	
+}
 
 // Damage 
 const DamageSelect = (props) => {

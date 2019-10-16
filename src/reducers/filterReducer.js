@@ -1,6 +1,7 @@
-import { STORE_RARITY, STORE_WEAPON_TYPE, STORE_DAMAGE, } from '../actions/types';
+import { STORE_COLLECTION, STORE_RARITY, STORE_WEAPON_TYPE, STORE_DAMAGE, } from '../actions/types';
 
 const initialState = {
+	collection: null,
 	rarity: null,
 	weaponType: null,
 	damage: null
@@ -10,6 +11,12 @@ export default function(state = initialState, action) {
 	const data = action.payload;
 
 	switch(action.type) {
+		case STORE_COLLECTION:
+			return {
+				...state,
+				collection: data,
+			};
+
 		case STORE_RARITY:
 			return {
 				...state,
