@@ -20,12 +20,12 @@ header.app__header {
 	padding: 0.5rem;
 	background: rgb(18,23,28);
 	background: linear-gradient(270deg, rgba(15,15,15,1) 0%, rgba(24,29,37,1) 95%, rgba(24,29,37,1) 100%);
-	cursor: pointer;
-
+	
 	span {
 		text-transform: uppercase;
 		font-weight: bold;
 		font-size: 1.4rem;
+		cursor: pointer;
 	}
 
 	.menu-icon__wrapper {
