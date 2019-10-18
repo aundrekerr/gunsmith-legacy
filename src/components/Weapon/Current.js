@@ -113,7 +113,7 @@ class Current extends Component {
 											hash={ `current-${mod.hash}` }
 											title={ mod.displayProperties.name }
 											subtitle={ mod.itemTypeDisplayName }
-											description={ mod.displayProperties.description }
+											description={ manifest.DestinySandboxPerkDefinition[mod.perks[0].perkHash].displayProperties.description }
 											stats={ mod.investmentStats.length > 0 ? mod.investmentStats : null }
 										/>
 									</React.Fragment>

@@ -23,21 +23,20 @@ class Header extends Component {
 		return (
 			<header className="app__header">
 				<div className="header__container">
-					<Route render={({ history }) => (
-						<div 
-							className="app__logo tracked-wide" 
-							data-for='getContent-0000' data-tip   
-							onClick={() => { history.push('/') }}
-						>
-							<span>GUNSMITH</span>
-							<div className="menu-icon__wrapper">
-								<i 
-									className={`menu-icon ${this.state.menuView}`} 
-									onClick={() => this.state.toggleMenu()}>	
-								</i>
-							</div>
+					<div 
+						className="app__logo tracked-wide" 
+						data-for='getContent-0000' data-tip   
+					>
+						<Route render={({ history }) => (
+							<span onClick={() => { history.push('/') }}>GUNSMITH</span>
+						)} />
+						<div className="menu-icon__wrapper">
+							<i 
+								className={`menu-icon ${this.state.menuView}`} 
+								onClick={() => this.state.toggleMenu()}>	
+							</i>
 						</div>
-					)} />
+					</div>
 					{/* <Tooltip 
 						hash='0000'
 						title='title'
