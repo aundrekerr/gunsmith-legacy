@@ -72,7 +72,6 @@ class Search extends Component {
 		if (weaponType) filteredList = filteredList.filter(weapon => { return weapon.itemSubType === weaponType });
 		if (damage) filteredList = filteredList.filter(weapon => { return weapon.defaultDamageTypeHash === damage });
 
-
 		// Filter through what's left based on the input field.
 		let suggestions = filteredList.filter( suggestion => (suggestion.displayProperties.name).toLowerCase().indexOf(userInput.toLowerCase()) > -1 );
 

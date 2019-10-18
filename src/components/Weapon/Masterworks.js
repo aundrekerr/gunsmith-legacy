@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { getMasterworks } from './../../utils/masterworks.js';
 import { storeMasterwork } from './../../actions/weaponActions';
 import Tooltip from './../Tooltip.js';
+import { Route } from "react-router-dom";
+import Hashids from 'hashids';
+const hashids = new Hashids();
 
 class Masterworks extends Component {
 
@@ -21,6 +24,20 @@ class Masterworks extends Component {
 					activeMW: activeMW.hash === mod.hash ? { hash: 0 } : mod
 				}))
 			},
+		}
+	}
+
+	componentDidMount() {
+		const { manifest, weapon } = this.props;
+		if ( weapon.masterwork.hash !== 0 ) {
+			const mwDef = manifest.DestinyInventoryItemDefinition[weapon.masterwork.hash];
+			const mwStatSplit = mwDef.plug.plugCategoryIdentifier.split('.');
+			const mwStatName = mwStatSplit[mwStatSplit.length - 1];
+
+			this.setState({
+				activeMW: { hash: weapon.masterwork.hash },
+				currentMWStat: mwStatName
+			})
 		}
 	}
 
@@ -120,7 +137,7 @@ class Masterworks extends Component {
 const Masterwork = (props) => {
 	const {
 		masterworks,
-
+		weapon,
 		isY1,
 		currentMWStat,
 		changeCurrentMWStat,
@@ -164,23 +181,35 @@ const Masterwork = (props) => {
 								{
 									masterworks[currentMWStat].benefits.map(mw => {
 										return (
-											<li key={mw.hash}
-											className={ 
-												activeMW.hash === mw.hash ? 'node active' : 'node' 
-											}
-											onClick={() => {
-												storeMasterwork(mw); 
-												toggleActiveMW(mw);
-											}}>
-												<div className="mw-icon" data-for={`getContent-${mw.hash}`} data-tip><img src={`https://bungie.net${mw.displayProperties.icon}`} alt=""/></div>
-												<Tooltip 
-													hash={ mw.hash }
-													title={ mw.displayProperties.name }
-													subtitle={ mw.itemTypeDisplayName }
-													description={ mw.displayProperties.description }
-													stats={ mw.investmentStats.length > 0 ? mw.investmentStats : null }
-												/>
-											</li>
+											<Route key={mw.hash} render={({ history }) => (
+												<li
+												className={ 
+													activeMW.hash === mw.hash ? 'node active' : 'node' 
+												}
+												onClick={() => {
+													storeMasterwork(mw); 
+													toggleActiveMW(mw);
+													let builtId = hashids.encode(
+															weapon.hash, 
+															weapon.perks.slotOne.hash, 
+															weapon.perks.slotTwo.hash, 
+															weapon.perks.slotThree.hash, 
+															weapon.perks.slotFour.hash, 
+															weapon.mod.hash, 
+															activeMW.hash !== mw.hash ? mw.hash : 0
+													);
+													history.push(`/w/${ builtId }`); 
+												}}>
+													<div className="mw-icon" data-for={`getContent-${mw.hash}`} data-tip><img src={`https://bungie.net${mw.displayProperties.icon}`} alt=""/></div>
+													<Tooltip 
+														hash={ mw.hash }
+														title={ mw.displayProperties.name }
+														subtitle={ mw.itemTypeDisplayName }
+														description={ mw.displayProperties.description }
+														stats={ mw.investmentStats.length > 0 ? mw.investmentStats : null }
+													/>
+												</li>
+											)} />
 										)
 									})
 								}

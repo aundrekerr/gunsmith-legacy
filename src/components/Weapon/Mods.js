@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { storeMod } from './../../actions/weaponActions';
 import Tooltip from './../Tooltip.js';
+import { Route } from "react-router-dom";
+import Hashids from 'hashids';
+const hashids = new Hashids();
 
 class Mods extends Component {
 	constructor(props) {
@@ -27,6 +30,16 @@ class Mods extends Component {
 					activeMod: activeMod.hash === mod.hash ? { hash: 0 } : mod
 				}))
 			}
+		}
+	}
+
+	componentDidMount() {
+		const { weapon } = this.props;
+
+		if ( weapon.mod.hash !== 0 ) { 	
+			this.setState({
+				activeMod: { hash: weapon.mod.hash }
+			})
 		}
 	}
 
@@ -72,25 +85,36 @@ class Mods extends Component {
 							{
 								modList.map(mod => {
 									return (
-										<li key={mod.hash}
-											className={ 
-												activeMod.hash === mod.hash ? 'node active' : 'node' 
-											}
-											onClick={() => { 
-												this.props.storeMod(mod); 
-												toggleActiveMod(mod);
-										} }>
-											<div className="mod-icon" data-for={`getContent-${mod.hash}`} data-tip>
-												<img src={`https://bungie.net${ mod.displayProperties.icon }`} alt="" />
-											</div>
-											<Tooltip 
-												hash={ mod.hash }
-												title={ mod.displayProperties.name }
-												subtitle={ mod.itemTypeDisplayName }
-												description={ manifest.DestinySandboxPerkDefinition[mod.perks[0].perkHash].displayProperties.description }
-												stats={ mod.investmentStats.length > 0 ? mod.investmentStats : null }
-											/>
-										</li>
+										<Route key={mod.hash} render={({ history }) => (
+											<li className={ 
+													activeMod.hash === mod.hash ? 'node active' : 'node' 
+												}
+												onClick={() => { 
+													this.props.storeMod(mod); 
+													toggleActiveMod(mod);
+													let builtId = hashids.encode(
+														weapon.hash, 
+														weapon.perks.slotOne.hash, 
+														weapon.perks.slotTwo.hash, 
+														weapon.perks.slotThree.hash, 
+														weapon.perks.slotFour.hash, 
+														activeMod.hash !== mod.hash ? mod.hash : 0,
+														weapon.masterwork.hash
+												);
+												history.push(`/w/${ builtId }`); 
+											} }>
+												<div className="mod-icon" data-for={`getContent-${mod.hash}`} data-tip>
+													<img src={`https://bungie.net${ mod.displayProperties.icon }`} alt="" />
+												</div>
+												<Tooltip 
+													hash={ mod.hash }
+													title={ mod.displayProperties.name }
+													subtitle={ mod.itemTypeDisplayName }
+													description={ manifest.DestinySandboxPerkDefinition[mod.perks[0].perkHash].displayProperties.description }
+													stats={ mod.investmentStats.length > 0 ? mod.investmentStats : null }
+												/>
+											</li>
+										)} />
 									)
 								})
 							}

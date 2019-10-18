@@ -5,8 +5,43 @@ import Vanity from './Vanity';
 import Perks from './Perks';
 import Mods from './Mods';
 import Masterworks from './Masterworks';
+import Hashids from 'hashids';
+import { storeWeapon, storePerks, storeMod, storeMasterwork } from './../../actions/weaponActions';
+import { Route, withRouter } from "react-router-dom";
+const hashids = new Hashids();
 
 class Weapon extends Component {
+
+	componentDidMount() {
+		const { weapon } = this.props;
+
+		if ( !weapon.hash ) {
+			this.unpackBuiltId(this.props.match.params.builtId);
+		}
+	}
+
+	unpackBuiltId = (builtId) => {
+		const { manifest } = this.props;
+		const decoded = hashids.decode(builtId);
+		this.props.storeWeapon( decoded[0] );
+
+		if ( decoded[1] ) this.props.storePerks({ hash: decoded[1] }, 1);
+		if ( decoded[2] ) this.props.storePerks({ hash: decoded[2] }, 2);
+		if ( decoded[3] ) this.props.storePerks({ hash: decoded[3] }, 3);
+		if ( decoded[4] ) this.props.storePerks({ hash: decoded[4] }, 4);
+		if ( decoded[5] ) {
+			if ( decoded[5] !== 0) {
+				const modDef = manifest.DestinyInventoryItemDefinition[ decoded[5] ];
+				this.props.storeMod( modDef );
+			}
+		}
+		if ( decoded[6] ) {
+			if ( decoded[6] !== 0) {
+				const mwDef = manifest.DestinyInventoryItemDefinition[ decoded[6] ];
+				this.props.storeMasterwork( mwDef );
+			}
+		}
+	}
 
 	render(){
 		const {
@@ -17,39 +52,40 @@ class Weapon extends Component {
 
 		if ( weapon.hash !== null ) {
 			return (
-				<div className="weapon__wrapper">
-					<Vanity />
-					<Current />
-					<Perks />
-					<Masterworks />
-					<Mods />
-				</div>
+				<React.Fragment>
+					<Route path='/w' render={({ history }) => (
+						<div className="weapon__wrapper">
+							<Vanity />
+							<Current />
+							<Perks />
+							<Masterworks />
+							<Mods />
+						</div>
+					)}/>
+				</React.Fragment>
 			)
 		} else {
 			return (
-				<div className="weapon__wrapper empty">
-					<span className="tracked-wide underline uppercase">What is this?</span>
-					<p>A weapon roll builder for Destiny 2 that calculates perk benefits on the fly.</p>
-					<br/>
-					<span className="tracked-wide underline uppercase">How do I use it?</span>
-					<p>Search for a weapon then select the perks, mods, and/or masterwork that you'd like to see.</p>
-					<p>Some perks will have extra info under their tooltip such as the calculated stat benefits or in-depth information how it works.</p>
-					<p>Gold rings on a perk indicate that it's for the curated roll, but not all are accurate (see Tigerspite) or even drop in-game (see 
-					Parcel of Stardust). Red indicates that the perk is exclusive to the curated roll.</p>
-					<br/>
-					<span className="tracked-wide underline uppercase">Is OEM balanced?</span>
-					<p>Does Shaxx take off his helmet?</p>
-					<br/>
-					<span className="tracked-wide underline uppercase">More questions?</span>
-					<p>Ask me on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/aundre_kerr">Twitter</a>.</p>
-				</div>
+				<Empty />
 			)
 		}
 	}
 }
 
 const mapStateToProps = state => ({
+	manifest: state.manifest,
 	weapon: state.weapon,
 });
 
-export default connect(mapStateToProps, {})(Weapon);
+export default connect(mapStateToProps, {
+	storeWeapon, storePerks, storeMod, storeMasterwork,
+})(withRouter(Weapon));
+
+
+const Empty = (props) => {
+	return (
+		<div className="weapon__wrapper empty">
+			<p>Uh oh.</p>
+		</div>
+	)
+}

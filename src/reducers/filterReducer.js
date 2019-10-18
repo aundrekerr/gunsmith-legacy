@@ -2,7 +2,7 @@ import { STORE_COLLECTION, STORE_RARITY, STORE_WEAPON_TYPE, STORE_DAMAGE, } from
 
 const initialState = {
 	collection: null,
-	rarity: null,
+	rarity: 4008398120,
 	weaponType: null,
 	damage: null
 }

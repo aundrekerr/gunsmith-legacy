@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchManifest } from './../actions/manifestActions';
 import { storeManifestStatus } from './../actions/manifestStatusActions';
-
+import { Route } from "react-router-dom";
 import Header from './Header';
 import Weapon from './Weapon';
 
@@ -29,7 +29,9 @@ class Base extends Component {
 					<Header />
 					<main className="main-content" style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/empty-background.jpg'}`}}>
 						<section className="weapon__container">
-							<Weapon />
+							<Route exact path='/' component={ Home } />
+							<Route exact path='/w' component={ Home } />
+							<Route path='/w/:builtId' component={ Weapon } />
 						</section>
 					</main>
 				</React.Fragment>
@@ -49,10 +51,61 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { fetchManifest, storeManifestStatus })(Base);
 
 
-const Loading = (props) => {
-	return (
-		<div className="loading">
-			loading <br/> I should build a proper loading state for this, huh
-		</div>
-	)
+class Loading extends React.Component {
+	static propTypes = {
+		text: PropTypes.string.isRequired
+	}
+
+	static defaultProps = {
+		text: 'Downloading Manifest'
+	}
+
+	state = {
+		text: this.props.text
+	}
+
+	componentDidMount() {
+		// const stopper = this.props.text + '...';
+		// this.interval = setInterval(() => {
+		// 	this.state.text === stopper
+		// 		? this.setState(() => ({ text: this.props.text }))
+		// 		: this.setState(({ text }) => ({ text: text + '.' }))
+		// });
+	}
+
+	componentWillUnmount() {
+		window.clearInterval(this.interval)
+	}
+
+	render() {
+		return (
+			<div className="loading">
+				{ this.state.text }
+			</div>
+		)
+	}
+}
+
+
+class Home extends React.Component {
+	render(){
+		return (
+			<div className="weapon__wrapper empty">
+				<span className="tracked-wide underline uppercase">What is this?</span>
+				<p>A weapon roll builder for Destiny 2 that calculates perk benefits on the fly.</p>
+				<br/>
+				<span className="tracked-wide underline uppercase">How do I use it?</span>
+				<p>Search for a weapon then select the perks, mods, and/or masterwork that you'd like to see.</p>
+				<p>Some perks will have extra info under their tooltip such as the calculated stat benefits or in-depth information how it works.</p>
+				<p>Gold rings on a perk indicate that it's for the curated roll, but not all are accurate (see Tigerspite) or even drop in-game (see 
+				Parcel of Stardust). Red indicates that the perk is exclusive to the curated roll.</p>
+				<br/>
+				<span className="tracked-wide underline uppercase">Is OEM balanced?</span>
+				<p>Does Shaxx take off his helmet?</p>
+				<br/>
+				<span className="tracked-wide underline uppercase">More questions?</span>
+				<p>Ask me on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/aundre_kerr">Twitter</a>.</p>
+			</div>
+		)
+	}
 }

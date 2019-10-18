@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
+import Hashids from 'hashids';
 import { connect } from 'react-redux';
+import { Route } from "react-router-dom";
+const hashids = new Hashids();
 
 let curatedList = [
+	2138599001, // Optative
+	1167153950, // Adhortative
+	3535742959, // Randy's Throwing Knife
+	1645386487, // Tranquility
+	3690523502, // Love and Death
+	208088207, // Premonition
 	48643186, // Ancient Gospel
 	2408405461, // Sacred Provenance
 	4020742303, // Prophet of Doom
 	3454326177, // Omniscient Eye
-	4095896073, // Accrued Redemption
-	1645386487, // Tranquility
-	3690523502, // Love and Death
-	208088207, // Premonition
-	2138599001, // Optative
-	1167153950, // Adhortative
-	3535742959, // Randy's Throwing Knife
-	755130877, // Last Man Standing
-	3524313097, // Eriana's Vow
-	4068264807, // Monte Carlo
 ];
+
 
 class Suggestions extends Component {
 	constructor(props) {
@@ -29,7 +29,6 @@ class Suggestions extends Component {
 	
 	componentDidMount(){
 		const siblings = this.props.getRefData();
-
 		let finalHeight = window.innerHeight - (siblings.filters.height + siblings.input.height + 128);
 
 		this.setState({
@@ -97,16 +96,19 @@ const CuratedList = (props) => {
 			<ul className="suggestions-list" style={window.innerWidth >= 992 ? { height: sugHeight } : { height: 'auto' }}>
 				{
 					curatedList.map((suggestion) => {
+						const builtId = hashids.encode(suggestion.hash);
 						return (
-							<li 
-								key={ suggestion.hash } 
-								onClick={() => { onSuggestionClick(suggestion.hash) }}
-							>
-								<div className="suggestion-icon">
-									<img src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.icon}`} alt=""/>
-								</div>
-								<div className="suggestion-title tracked-thin small">{ manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.name }</div>
-							</li>
+							<Route key={ suggestion.hash } render={({ history }) => (
+								<li onClick={() => {
+									onSuggestionClick(suggestion.hash); 
+									history.push(`/w/${ builtId }`); 
+								}}>
+									<div className="suggestion-icon">
+										<img src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.icon}`} alt=""/>
+									</div>
+									<div className="suggestion-title tracked-thin small">{ manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.name }</div>
+								</li>
+							)} />
 						)
 					})
 				}
@@ -124,16 +126,19 @@ const SuggestionList = (props) => {
 			<ul className="suggestions-list" style={window.innerWidth >= 992 ? { height: sugHeight } : { height: 'auto' }}>
 				{
 					filteredSuggestions.map((suggestion) => {
+						const builtId = hashids.encode(suggestion.hash);
 						return (
-							<li 
-								key={ suggestion.hash } 
-								onClick={() => { onSuggestionClick(suggestion.hash) }}
-							>
-								<div className="suggestion-icon">
-									<img src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.icon}`} alt=""/>
-								</div>
-								<div className="suggestion-title tracked-thin small">{ manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.name }</div>
-							</li>
+							<Route key={ suggestion.hash } render={({ history }) => (
+								<li onClick={() => { 
+									onSuggestionClick(suggestion.hash); 
+									history.push(`/w/${ builtId }`); 
+								}}>
+									<div className="suggestion-icon">
+										<img src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.icon}`} alt=""/>
+									</div>
+									<div className="suggestion-title tracked-thin small">{ manifest.DestinyInventoryItemDefinition[suggestion.hash].displayProperties.name }</div>
+								</li>
+							)} />
 						)
 					})
 				}

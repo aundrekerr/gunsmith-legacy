@@ -4,6 +4,12 @@ const initialState = {
 	hash: null,
 	mod: { hash: 0 },
 	masterwork: { hash: 0 },
+	perks: {
+		slotOne: { hash: 0 },
+		slotTwo: { hash: 0 },
+		slotThree: { hash: 0 },
+		slotFour: { hash: 0 },
+	}
 }
 
 export default function(state = initialState, action) {

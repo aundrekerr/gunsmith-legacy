@@ -106,8 +106,8 @@ export function getMasterworks(
 			for (const [statType, data] of Object.entries(mwCollection)) {
 				if (shouldShowStat(itemDef, data.hash, statDisplays)) {
 
-					// Don't include Impact if it's not a fusion rifle.
-					if ( itemDef.itemSubType !== 11 && statType === 'damage'  ) {
+					// Don't include Impact if it's not a sword.
+					if ( itemDef.itemSubType !== 18 && statType === 'damage'  ) {
 						mwCollection[statType].active = false;
 						continue;
 					}

@@ -11,7 +11,7 @@ class SearchFilter extends Component {
 		this.state = {
 			currentList: this.props.weaponList,
 			currentCollection: null,
-			currentRarity: null,
+			currentRarity: 4008398120,
 			currentWeaponType: 0,
 			currentDamage: 0,
 			weaponRarity: [

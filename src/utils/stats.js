@@ -196,7 +196,7 @@ export function enhanceStatsWithPlugs (
 	const statDisplays = statGroup.scaledStats;
 	let noMWStats;
 	const modifiedStats = new Set();
-
+	
 	Object.keys(perks).map(perk => {
 		const perkDef = manifest.DestinyInventoryItemDefinition[perks[perk].hash];
 

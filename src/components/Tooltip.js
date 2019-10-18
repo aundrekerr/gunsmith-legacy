@@ -81,7 +81,6 @@ class Tooltip extends Component {
 const TooltipStats = (props) => {
 	const {
 		stats,
-
 		manifest,
 		weapon
 	} = props;
