@@ -5,6 +5,8 @@ import { Route } from "react-router-dom";
 const hashids = new Hashids();
 
 let curatedList = [
+	4117693024, // Mindbender's Ambition
+	2429822977, // Austringer
 	2138599001, // Optative
 	1167153950, // Adhortative
 	3535742959, // Randy's Throwing Knife

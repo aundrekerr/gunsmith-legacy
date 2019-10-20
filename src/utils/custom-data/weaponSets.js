@@ -246,7 +246,7 @@ export default (
 			]
 		},
 		{
-			name: 'Moon Trash',
+			name: 'Dreambane',
 			weapons: [
 				1645386487, // Tranquility
 				2723909519, // Arc Logic
