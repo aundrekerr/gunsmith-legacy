@@ -11,7 +11,7 @@ class SearchFilter extends Component {
 		this.state = {
 			currentList: this.props.weaponList,
 			currentCollection: null,
-			currentRarity: 4008398120,
+			currentRarity: 0,
 			currentWeaponType: 0,
 			currentDamage: 0,
 			weaponRarity: [
@@ -202,6 +202,7 @@ const RaritySelect = (props) => {
 			onChange={ changeRarity } 
 			value={ currentRarity === null ? 0 : currentRarity }
 		>
+			{console.log(currentRarity)}
 			{weaponRarity.map((type) => {
 				return (
 					<option 

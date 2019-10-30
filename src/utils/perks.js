@@ -56,8 +56,10 @@ function collectPerks (
 
 				// If this is the WEAPON FRAME or INTRINSIC PERK
 				if (isIntrinsic) {
+
 					perkList[slotCheck].push({	
-						hash: socket.reusablePlugItems[0].plugItemHash,
+						// hash: socket.reusablePlugItems[0].plugItemHash,
+						hash: manifest.DestinyPlugSetDefinition[socket.reusablePlugSetHash].reusablePlugItems[0].plugItemHash,
 						isCurated: false,
 						curatedOnly: false,
 						isIntrinsic: isIntrinsic
@@ -66,12 +68,11 @@ function collectPerks (
 					// Increment to move to next perk slot.
 					slotCheck++;
 				} else {
-					
 					// Work on the random/set perks of the weapon.
 					// SET PERKS
-					if ( socket.reusablePlugItems.length > 0) {
-						for (let i = 0; i < socket.reusablePlugItems.length; i++) {
-							const plugItemHash = socket.reusablePlugItems[i].plugItemHash;
+					if ( socket.reusablePlugSetHash ) {
+						for (let i = 0; i < manifest.DestinyPlugSetDefinition[socket.reusablePlugSetHash].reusablePlugItems.length; i++) {
+							const plugItemHash = manifest.DestinyPlugSetDefinition[socket.reusablePlugSetHash].reusablePlugItems[i].plugItemHash;
 							let curatedOnlyCheck = true;
 
 							// If it's undefined, it's a Kill Tracker 
