@@ -5,11 +5,11 @@ import { Route } from "react-router-dom";
 const hashids = new Hashids();
 
 let curatedList = [
-	4117693024, // Mindbender's Ambition
-	2429822977, // Austringer
+	2164448701, // Apostate
+	2782847179, // Blasphemer
+	3067821200, // Heretic
 	2138599001, // Optative
 	1167153950, // Adhortative
-	3535742959, // Randy's Throwing Knife
 	1645386487, // Tranquility
 	3690523502, // Love and Death
 	208088207, // Premonition

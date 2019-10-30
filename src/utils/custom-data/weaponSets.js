@@ -248,6 +248,9 @@ export default (
 		{
 			name: 'Dreambane',
 			weapons: [
+				2164448701, // Apostate
+				2782847179, // Blasphemer
+				3067821200, // Heretic
 				1645386487, // Tranquility
 				2723909519, // Arc Logic
 				208088207, // Premonition
@@ -258,6 +261,7 @@ export default (
 				3325778512, // A Fine Memorial
 				3870811754, // Night Terror
 				3690523502, // Love and Death
+				
 			]
 		}
 	]
