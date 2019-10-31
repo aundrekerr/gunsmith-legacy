@@ -231,7 +231,7 @@ export default (
 			name: 'Events',
 			weapons: [
 				3829285960, // Horror Story
-				796633253, // Prideglass
+				3645283765, // BrayTech Werewolf
 				66875353, // Avalanche
 				2009106091, // The Vow
 			]
