@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 const hashids = new Hashids();
 
 let curatedList = [
+	3645283765, // BrayTech Werewolf
 	2164448701, // Apostate
 	2782847179, // Blasphemer
 	3067821200, // Heretic
