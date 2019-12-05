@@ -98,7 +98,6 @@ const CuratedList = (props) => {
 			<ul className="suggestions-list" style={window.innerWidth >= 992 ? { height: sugHeight } : { height: 'auto' }}>
 				{
 					curatedList.map((suggestion) => {
-						console.log(curatedList)
 						const builtId = hashids.encode(suggestion.hash);
 						return (
 							<Route key={ suggestion.hash } render={({ history }) => (
