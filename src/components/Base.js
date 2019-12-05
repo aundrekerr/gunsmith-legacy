@@ -95,10 +95,7 @@ class Home extends React.Component {
 				<p>A weapon roll builder for Destiny 2 that calculates perk benefits on the fly.</p>
 				<br/>
 				<span className="tracked-wide underline uppercase">How do I use it?</span>
-				<p>Search for a weapon then select the perks, mods, and/or masterwork that you'd like to see.</p>
-				<p>Some perks will have extra info under their tooltip such as the calculated stat benefits or in-depth information how it works.</p>
-				<p>Gold rings on a perk indicate that it's for the curated roll, but not all are accurate (see Tigerspite) or even drop in-game (see 
-				Parcel of Stardust). Red indicates that the perk is exclusive to the curated roll.</p>
+				<p>Find a weapon, check the perks, see how they affect the stats. Gold perks are from the curated rolls.</p>
 				<br/>
 				<span className="tracked-wide underline uppercase">Is OEM balanced?</span>
 				<p>Does Shaxx take off his helmet?</p>
