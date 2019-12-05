@@ -202,7 +202,6 @@ const RaritySelect = (props) => {
 			onChange={ changeRarity } 
 			value={ currentRarity === null ? 0 : currentRarity }
 		>
-			{console.log(currentRarity)}
 			{weaponRarity.map((type) => {
 				return (
 					<option 

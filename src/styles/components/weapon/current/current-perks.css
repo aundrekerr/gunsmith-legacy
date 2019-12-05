@@ -1,0 +1,122 @@
+.weapon__current-perks ul.perk-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.weapon__current-perks ul.perk-list > li {
+  position: relative;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.weapon__current-perks ul.perk-list > li:after {
+  content: '';
+  display: block;
+  width: 44px;
+  padding-bottom: 100%;
+}
+
+.weapon__current-perks ul.perk-list > li.curated .perk-icon:before {
+  border: 2px solid rgba(183, 140, 37, 0.6);
+}
+
+.weapon__current-perks ul.perk-list > li.curated .perk-icon:after {
+  border: 1px solid #b78c25;
+}
+
+.weapon__current-perks ul.perk-list > li.curated-only .perk-icon:after {
+  border: 1px solid #973835;
+}
+
+.weapon__current-perks ul.perk-list > li:hover .perk-icon:before {
+  background: rgba(245, 245, 245, 0.3);
+}
+
+.weapon__current-perks ul.perk-list > li:hover.curated .perk-icon:before {
+  background: rgba(183, 140, 37, 0.3);
+}
+
+.weapon__current-perks ul.perk-list > li:hover.curated .perk-icon:after {
+  border: 1px solid #b78c25;
+}
+
+.weapon__current-perks ul.perk-list > li:hover.curated-only .perk-icon:before {
+  background: rgba(151, 56, 53, 0.3);
+}
+
+.weapon__current-perks ul.perk-list > li:hover.curated-only .perk-icon:after {
+  border: 1px solid #973835;
+}
+
+.weapon__current-perks ul.perk-list > li:hover .perk-icon:after {
+  opacity: 1;
+}
+
+.weapon__current-perks ul.perk-list > li:hover .perk-info {
+  display: block;
+  opacity: 1;
+}
+
+.weapon__current-perks .perk-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+}
+
+.weapon__current-perks .perk-icon:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  padding-bottom: 100%;
+  background: rgba(245, 245, 245, 0);
+  border: 2px solid rgba(245, 245, 245, 0.6);
+  border-radius: 50%;
+  z-index: 1;
+  -webkit-transition: background 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: background 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  pointer-events: none;
+}
+
+.weapon__current-perks .perk-icon:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(100% + 9px);
+  padding-bottom: calc(100% + 9px);
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: opacity 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  pointer-events: none;
+}
+
+.weapon__current-perks .perk-icon img {
+  max-width: calc(100% - 0.75rem);
+  z-index: 2;
+}
+/*# sourceMappingURL=current-perks.css.map */

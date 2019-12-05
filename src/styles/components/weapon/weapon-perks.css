@@ -1,0 +1,174 @@
+.weapon__perks .perk-grid__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path fill="%23fff" fill-opacity=".2" d="M0 9h19v1H0z"/><path fill="%23fff" fill-opacity=".2" d="M9 0h1v19H9z"/></svg>');
+}
+
+.weapon__perks ul.perk-grid__column {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0.5rem 0 0;
+}
+
+.weapon__perks ul.perk-grid__column:first-of-type li.node {
+  cursor: auto;
+}
+
+.weapon__perks ul.perk-grid__column:last-of-type {
+  margin-right: 0;
+}
+
+.weapon__perks ul.perk-grid__column li.node {
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+}
+
+.weapon__perks ul.perk-grid__column li.node:after {
+  content: '';
+  display: block;
+  width: 44px;
+  padding-bottom: 100%;
+}
+
+.weapon__perks ul.perk-grid__column li.node.curated .perk-icon:before {
+  border: 2px solid rgba(183, 140, 37, 0.6);
+}
+
+.weapon__perks ul.perk-grid__column li.node.curated .perk-icon:after {
+  border: 1px solid #b78c25;
+}
+
+.weapon__perks ul.perk-grid__column li.node.curated-only .perk-icon:after {
+  border: 1px solid #973835;
+}
+
+.weapon__perks ul.perk-grid__column li.node.active .perk-icon:before {
+  background: var(--color__bungie-active);
+}
+
+.weapon__perks ul.perk-grid__column li.node.active.curated-only .perk-icon:before {
+  border: 2px solid #973835;
+}
+
+.weapon__perks ul.perk-grid__column li.node.frame .perk-icon:before,
+.weapon__perks ul.perk-grid__column li.node.frame .perk-icon:after {
+  content: none;
+}
+
+.weapon__perks ul.perk-grid__column li.node.frame li {
+  padding: 0;
+}
+
+.weapon__perks ul.perk-grid__column li.node.frame .perk-icon img {
+  max-width: 100%;
+  width: auto;
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover .perk-icon:before {
+  background: rgba(245, 245, 245, 0.3);
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover.curated .perk-icon:before {
+  background: rgba(183, 140, 37, 0.3);
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover.active.curated .perk-icon:before {
+  background: #518dba;
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover.curated .perk-icon:after {
+  border: 1px solid #b78c25;
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover.curated-only .perk-icon:before {
+  background: rgba(151, 56, 53, 0.3);
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover.active.curated-only .perk-icon:before {
+  background: #518dba;
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover.curated-only .perk-icon:after {
+  border: 1px solid #973835;
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover .perk-icon:after {
+  opacity: 1;
+}
+
+.weapon__perks ul.perk-grid__column li.node:hover .perk-info {
+  display: block;
+  opacity: 1;
+}
+
+.weapon__perks ul.perk-grid__column li.node.active .perk-icon:before {
+  background: #518dba;
+}
+
+.weapon__perks .perk-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+}
+
+.weapon__perks .perk-icon:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  padding-bottom: 100%;
+  background: rgba(245, 245, 245, 0);
+  border: 2px solid rgba(245, 245, 245, 0.6);
+  border-radius: 50%;
+  z-index: 1;
+  -webkit-transition: background 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: background 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  pointer-events: none;
+}
+
+.weapon__perks .perk-icon:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(100% + 9px);
+  padding-bottom: calc(100% + 9px);
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: opacity 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  pointer-events: none;
+}
+
+.weapon__perks .perk-icon img {
+  max-width: calc(100% - 0.75rem);
+  z-index: 2;
+}
+/*# sourceMappingURL=weapon-perks.css.map */

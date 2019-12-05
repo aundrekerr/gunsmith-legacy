@@ -1,0 +1,132 @@
+.tooltip {
+  position: absolute;
+  z-index: 9999;
+  width: 360px;
+}
+
+.tooltip:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(1rem);
+          filter: blur(1rem);
+}
+
+.tooltip header {
+  position: relative;
+  z-index: 2;
+  border-top: 5px solid var(--color__game-common);
+  background: black;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
+
+.tooltip header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.tooltip header span {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 0.9rem;
+  color: var(--color__game-common);
+  text-transform: capitalize;
+}
+
+.tooltip .tooltip-content {
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  background: #1a1a1a;
+  font-size: 0.8rem;
+}
+
+.tooltip .tooltip-content pre {
+  margin: 0;
+  padding-bottom: 0.25rem;
+  font-family: var(--font__primary);
+  white-space: pre-wrap;
+}
+
+.tooltip .tooltip-content pre + span {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font__primary);
+  white-space: pre-wrap;
+  font-style: italic;
+  color: var(--color__system-dark_grey);
+}
+
+.tooltip .tooltip-stats {
+  border-top: 1px solid var(--color__bungie-white);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0 0;
+}
+
+.tooltip .tooltip-stats ul {
+  letter-spacing: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltip .tooltip-stats ul li.stat {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.15rem;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.tooltip .tooltip-stats ul li.stat .stat__desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.8rem;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.tooltip .tooltip-stats ul li.stat .stat__value {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+  font-size: 0.9em;
+}
+
+.__react_component_tooltip {
+  padding: 0;
+  margin: 0 !important;
+  background: transparent;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.__react_component_tooltip:before, .__react_component_tooltip:after {
+  content: none;
+}
+/*# sourceMappingURL=tooltip.css.map */
