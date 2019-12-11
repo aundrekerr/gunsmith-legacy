@@ -99,6 +99,7 @@ class Home extends React.Component {
 				<ul>
 					<li>Featured list will usually contain the newest weapons for the season/event.</li>
 					<li>Curated-exclusive perks aren't showing up, looking into it.</li>
+					<li>Images not loading on mobile.</li>
 				</ul>
 				<br/>
 				<span className="tracked-wide underline uppercase">New this season</span>
