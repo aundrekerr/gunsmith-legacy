@@ -98,8 +98,7 @@ class Home extends React.Component {
 				<span className="tracked-wide underline uppercase">Latest Notes</span>
 				<ul>
 					<li>Featured list will usually contain the newest weapons for the season/event.</li>
-					<li>Curated-exclusive perks aren't showing up, looking into it.</li>
-					<li>Images not loading on mobile.</li>
+					<li>Curated-exclusive perks aren't showing up and some images aren't loading on mobile, looking into it.</li>
 				</ul>
 				<br/>
 				<span className="tracked-wide underline uppercase">New this season</span>
