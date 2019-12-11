@@ -91,14 +91,36 @@ class Home extends React.Component {
 	render(){
 		return (
 			<div className="weapon__wrapper empty">
-				<span className="tracked-wide underline uppercase">What is this?</span>
+				<span className="tracked-wide underline uppercase">What is this & how do I use it?</span>
 				<p>A weapon roll builder for Destiny 2 that calculates perk benefits on the fly.</p>
+				<p>Pick a weapon, pick the perks, see how they affect the stats. Gold perks are from the curated rolls.</p>
 				<br/>
-				<span className="tracked-wide underline uppercase">How do I use it?</span>
-				<p>Find a weapon, check the perks, see how they affect the stats. Gold perks are from the curated rolls.</p>
+				<span className="tracked-wide underline uppercase">Latest Notes</span>
+				<ul>
+					<li>Featured list will usually contain the newest weapons for the season/event.</li>
+					<li>Curated-exclusive perks aren't showing up, looking into it.</li>
+				</ul>
 				<br/>
-				<span className="tracked-wide underline uppercase">Is OEM balanced?</span>
-				<p>Does Shaxx take off his helmet?</p>
+				<span className="tracked-wide underline uppercase">New this season</span>
+				<ul>
+					<li>Perfect Paradox</li>
+					<li>Martyr's Retribution</li>
+					<li>Steelfeather Repeater</li>
+					<li>Gallant Charge</li>
+					<li>Patron of Lost Causes</li>
+					<li>Breachlight</li>
+					<li>Point of the Stag</li>
+					<li>Line in the Sand</li>
+					<li>The Old Fashioned</li>
+					<li>Elatha FR4</li>
+					<li>Uriel's Gift</li>
+					<li>Jack Queen King 3</li>
+					<li>Infinite Paths 8</li>
+					<li>Traveler's Judgement 5</li>
+					<li>Last Hope </li>
+					<li>Mos Epoch III</li>
+					<li>Pyroclastic Flow</li>
+				</ul>
 				<br/>
 				<span className="tracked-wide underline uppercase">More questions?</span>
 				<p>Ask me on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/aundre_kerr">Twitter</a>.</p>

@@ -5,18 +5,23 @@ import { Route } from "react-router-dom";
 const hashids = new Hashids();
 
 let curatedList = [
-	2164448701, // Apostate
-	2782847179, // Blasphemer
-	3067821200, // Heretic
-	2138599001, // Optative
-	1167153950, // Adhortative
-	1645386487, // Tranquility
-	3690523502, // Love and Death
-	208088207, // Premonition
-	48643186, // Ancient Gospel
-	2408405461, // Sacred Provenance
-	4020742303, // Prophet of Doom
-	3454326177, // Omniscient Eye
+	3393519051, // Perfect Paradox
+	3850168899, // Martyr's Retribution
+	1251729046, // Steelfeather Repeater
+	1706206669, // Gallant Charge
+	2723241847, // Patron of Lost Causes
+	1289997971, // Breachlight
+	3434944005, // Point of the Stag
+	946443267, // Line in the Sand
+	3569802112, // The Old Fashioned
+	4106983932, // Elatha FR4
+	3863882743, // Uriel's Gift
+	410996590, // Jack Queen King 3
+	3233390913, // Infinite Paths 8
+	4149758318, // Traveler's Judgement 5
+	3622137132, // Last Hope 
+	1529450902, // Mos Epoch III
+	1289324202, // Pyroclastic Flow
 ];
 
 
