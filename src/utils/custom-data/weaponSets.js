@@ -18,7 +18,15 @@ export default (
 				720351795, // Arsenic Bite-4b
 				3410721600, // Subtle Calamity
 				1327264046, // Badlander
-				218335759 // Edge Transit
+				218335759, // Edge Transit
+				3569802112, // The Old Fashioned
+				4106983932, // Elatha FR4
+				3863882743, // Uriel's Gift
+				3622137132, // Last Hope 
+				1529450902, // Mos Epoch III
+				720351794, // No Turning Back
+				301362380, // Terran Wind
+				3334276333, // Death by Scorn
 			]
 		},
 		{
@@ -209,10 +217,7 @@ export default (
 				3376406418, // Right Side of Wrong
 				1178886909, // Thin Line
 				2681395357, // Trackless Waste
-				636912560, // Dust Rock Blues,
-				3334276333, // Death by Scorn
-				720351794, // No Turning Back
-				301362380 // Terran Wind
+				636912560, // Dust Rock Blues
 			]
 		}, 
 		{
@@ -234,6 +239,7 @@ export default (
 				3645283765, // BrayTech Werewolf
 				66875353, // Avalanche
 				2009106091, // The Vow
+				1506719573, // Cold Front
 			]
 		},
 		{
@@ -262,6 +268,24 @@ export default (
 				3870811754, // Night Terror
 				3690523502, // Love and Death
 				
+			]
+		},
+		{
+			name: 'The Sundial/Obelisk',
+			weapons: [
+				3393519051, // Perfect Paradox
+				3850168899, // Martyr's Retribution
+				1251729046, // Steelfeather Repeater
+				1706206669, // Gallant Charge
+				2723241847, // Patron of Lost Causes
+				1289997971, // Breachlight
+				3434944005, // Point of the Stag
+				946443267, // Line in the Sand
+				410996590, // Jack Queen King 3
+				3233390913, // Infinite Paths 8
+				4149758318, // Traveler's Judgement 5
+				4166221755, // Trophy Hunter
+				1289324202, // Pyroclastic Flow
 			]
 		}
 	]

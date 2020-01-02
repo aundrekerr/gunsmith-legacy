@@ -8,19 +8,15 @@ let curatedList = [
 	3393519051, // Perfect Paradox
 	3850168899, // Martyr's Retribution
 	1251729046, // Steelfeather Repeater
-	1706206669, // Gallant Charge
 	2723241847, // Patron of Lost Causes
 	1289997971, // Breachlight
-	3434944005, // Point of the Stag
 	946443267, // Line in the Sand
 	3569802112, // The Old Fashioned
-	4106983932, // Elatha FR4
-	3863882743, // Uriel's Gift
 	410996590, // Jack Queen King 3
 	3233390913, // Infinite Paths 8
 	4149758318, // Traveler's Judgement 5
 	3622137132, // Last Hope 
-	1529450902, // Mos Epoch III
+	4166221755, // Trophy Hunter
 	1289324202, // Pyroclastic Flow
 ];
 
