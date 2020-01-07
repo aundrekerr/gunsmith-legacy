@@ -91,7 +91,6 @@ class Home extends React.Component {
 	render(){
 		return (
 			<div className="weapon__wrapper empty">
-				{console.log(process.env.REACT_APP_AEK)}
 				<span className="tracked-wide underline uppercase">What is this & how do I use it?</span>
 				<p>A weapon roll builder for Destiny 2 that calculates perk benefits on the fly.</p>
 				<p>Pick a weapon, pick the perks, see how they affect the stats. Gold perks are from the curated rolls.</p>
