@@ -68,6 +68,37 @@ function collectPerks (
 					// Increment to move to next perk slot.
 					slotCheck++;
 				} else {
+
+
+					// New Curated Check. 
+					// Doesn't 
+					if (
+						socket.hasOwnProperty('randomizedPlugSetHash') && 
+						socket.hasOwnProperty('reusablePlugItems') && 
+						socket.plugSources === 2
+					) {
+						for (let i = 0; i < socket.reusablePlugItems.length; i++) {
+							const plugItemHash = socket.reusablePlugItems[i].plugItemHash;
+							const randomizedPlugSetHash = socket.randomizedPlugSetHash;
+							const randomPerkPool = manifest.DestinyPlugSetDefinition[randomizedPlugSetHash].reusablePlugItems;
+
+							// If this plug doesn't exist in the random slot, add it.
+							let curatedOnly =  randomPerkPool.filter(plug => plug.plugItemHash === plugItemHash).length > 0 ? false : true;
+
+							if (curatedOnly) {
+								// If this perk is curated, but not exclusive to the curated roll.
+								perkList[slotCheck].push({
+									hash: plugItemHash,
+									isCurated: (socket.reusablePlugItems).some(p => p.plugItemHash === socket.reusablePlugItems[i].plugItemHash),
+									curatedOnly: true,
+									isIntrinsic: isIntrinsic
+								});
+							}
+							
+						}
+					}	
+
+
 					// Work on the random/set perks of the weapon.
 					// SET PERKS
 					if ( socket.reusablePlugSetHash ) {
