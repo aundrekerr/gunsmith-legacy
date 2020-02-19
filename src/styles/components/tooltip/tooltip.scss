@@ -113,3 +113,13 @@
 		content: none;
 	}
 }
+
+.__react_component_tooltip place-top {
+	padding: 0;
+	border-radius: 0;
+	
+	&:before,
+	&:after {
+		content: none;
+	}
+}
