@@ -134,7 +134,7 @@ class Search extends Component {
 		if ( window.innerWidth < 992) {
 			this.setState({
 				activeSuggestion: 0,
-				filteredSuggestions: [],
+				// filteredSuggestions: [],
 				// showSuggestions: false,
 				userInput: ''
 			})
