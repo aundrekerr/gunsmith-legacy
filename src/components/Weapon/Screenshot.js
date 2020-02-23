@@ -157,8 +157,8 @@ class Screenshot extends Component {
 							<CameraIcon />
 							<Tooltip 
 								hash={`screenshot`}
-								title={ 'Export Screenshot' }
-								description={ '-92.1-92.1-92.1-92.1-101.7-101.8-82.6-82.5-92.1 92.' }
+								title={ 'Save Screenshot' }
+								description={ 'Coming soon.' }
 							/>
 						</button>
 				</div>

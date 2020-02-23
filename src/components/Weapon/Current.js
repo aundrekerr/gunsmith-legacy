@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import ReactDOM from "react-dom";
 import { connect } from 'react-redux';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import Tooltip from './../Tooltip.js';
 import Wishlist from './Wishlist';
 import Screenshot, { ScreenshotElement } from './Screenshot';
@@ -44,25 +44,25 @@ class Current extends Component {
 	}
 
 	toggleScreenshotView = () => {
-		this.setState(({screenshotActive}) => ({
-			screenshotActive: screenshotActive === true ? false : true
-		}))
+		// this.setState(({screenshotActive}) => ({
+		// 	screenshotActive: screenshotActive === true ? false : true
+		// }))
 	}
 
 	generateScreenshot = () => {
-		const node = (this.screenshot.current).querySelector('.inner-container');
+		// const node = (this.screenshot.current).querySelector('.inner-container');
 
-		html2canvas(node, {
-			proxy: 'https://aundrekerr.com/gunsmith-proxy/html2canvasproxy.php',
-			// allowTaint: true,
-			useCORS: true,
-			// logging: true,
-		})
-		.then((canvas) => {
-			document.body.appendChild(canvas);
-			// let base64image = canvas.toDataURL("image/png");
-			// console.log(base64image)
-		});
+		// html2canvas(node, {
+		// 	proxy: 'https://aundrekerr.com/gunsmith-proxy/html2canvasproxy.php',
+		// 	// allowTaint: true,
+		// 	useCORS: true,
+		// 	// logging: true,
+		// })
+		// .then((canvas) => {
+		// 	document.body.appendChild(canvas);
+		// 	// let base64image = canvas.toDataURL("image/png");
+		// 	// console.log(base64image)
+		// });
 	}
 
 	render(){
