@@ -8,7 +8,6 @@ import Header from './Header';
 import Weapon from './Weapon';
 
 class Base extends Component {
-
 	componentDidMount() {
 		this.props.fetchManifest();
 	}
@@ -25,16 +24,16 @@ class Base extends Component {
 		return (
 			!manifestLoaded 
 				? <Loading />
-				: <React.Fragment>
-					<Header />
-					<main className="main-content" style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/empty-background.jpg'}`}}>
-						<section className="weapon__container">
-							<Route exact path='/' component={ Home } />
-							<Route exact path='/w' component={ Home } />
-							<Route path='/w/:builtId' component={ Weapon } />
-						</section>
-					</main>
-				</React.Fragment>
+				: <>
+						<Header />
+						<main className="main-content" style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/empty-background.jpg'}`}}>
+							<section className="weapon__container">
+								<Route exact path='/' component={ Home } />
+								<Route exact path='/w' component={ Home } />
+								<Route path='/w/:builtId' component={ Weapon } />
+							</section>
+						</main>
+					</>
 		)
 	}
 }

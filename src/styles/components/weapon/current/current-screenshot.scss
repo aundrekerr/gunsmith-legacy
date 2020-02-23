@@ -1,0 +1,205 @@
+.screenshot-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0,0.5);
+	height: 100vh;
+	width: 100vw;
+	// pointer-events: none;
+	// opacity: 0;
+	// transform: scale(0.9);
+	transition: 
+		opacity 0.7s var(--transition_cubic_bezier),
+		transform 0.3s var(--transition_cubic_bezier),;
+
+	// &.active {
+		opacity: 1;
+		transform: scale(1);
+	// }
+
+	.inner-container {
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		max-width: 100%;
+		width: 500px;
+		background-color: var(--color__system-black);
+	}
+
+	.stat-half {
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-between;
+		width: 50%;
+		padding: 1rem;
+		border-top: 4px solid;
+		
+		&.kinetic { border-color: var(--color__bungie-white); }
+		&.arc { border-color: var(--color__game-arc); }
+		&.solar { border-color: var(--color__game-solar); }
+		&.void { border-color: var(--color__game-void); }
+	}
+
+	.weapon__display {
+		margin-bottom: 1rem;
+
+		.title {
+			span { display: block; }
+			.name { font-size: 1.5rem; }
+			.type { font-size: 1rem; }
+		}
+	}
+
+	.weapon__stats {
+		margin-top: 1rem;
+
+		@include media('<lg') {
+			.stat-list { column-count: auto; }
+		}
+
+		ul.stat-list { margin: 0; width: 100%; }
+
+		.stat__name {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			letter-spacing: -0.5px;
+			margin-right: 0.5rem;
+			padding-right: 0;
+		}
+	}
+
+	.weapon__current-perks {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 0;
+		padding: 1rem;
+		background-color: var(--color__bungie-medium_blue);
+		box-shadow: 0 0 40px 0 rgba(0,0,0,0.5);	
+		width: 50%;
+
+		ul.perk-list {
+			flex-direction: column;
+			background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path fill="%23fff" fill-opacity=".2" d="M0 9h19v1H0z"/><path fill="%23fff" fill-opacity=".2" d="M9 0h1v19H9z"/></svg>');
+			padding: 0.5rem;
+
+			li {
+				&:after { content: none; }
+				display: flex;
+				align-items: center;
+				margin: 0 0 0.5rem;
+				width: 100%;
+
+				.perk-icon,
+				.masterwork-icon,
+				.mod-icon {
+					flex-shrink: 0;
+					margin-right: 1rem;
+				}
+
+				span {
+					width: 100%;
+					font-weight: bold;
+					text-transform: uppercase;
+					font-size: 0.9rem;
+				}
+			}
+		}
+
+		ul.perk-names {
+			display: flex;
+			flex-flow: row wrap;
+			list-style-type: none;
+			margin: 1rem 0 0;
+			padding: 0;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		.perk-icon {
+			position: relative;
+		}
+
+		.masterwork-icon,
+		.mod-icon {
+			position: relative;
+			display: flex;
+			max-width: 44px;
+			border: 2px solid rgba(#f5f5f5, 0.6);
+			// box-shadow: 0 0 0 2px rgba(#f5f5f5, 0.6);
+			transition: 
+				color 0.2s var(--transition_cubic_bezier), 
+				border-color 0.2s var(--transition_cubic_bezier),
+				background-color 0.2s var(--transition_cubic_bezier);
+	
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: var(--color__bungie-white);
+				opacity: 0;
+			}
+	
+	
+			&:after {
+				content: '';
+				position: absolute;
+				top: -3px;	
+				left: -3px;
+				pointer-events: none;
+				box-shadow: 0 0 0 2px var(--color__bungie-white);
+				width: calc(100% + 6px);
+				height: calc(100% + 6px);
+				opacity: 0;
+				transform: scale(1.1);
+				transition: 
+					opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1),
+					transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+			}
+	
+			&:hover {
+				&:before {
+					opacity: 0.15;
+				}
+	
+				&:after {
+					opacity: 0.8;
+					transform: scale(1);
+				}
+			}
+	
+			@include media('<lg') {
+				align-items: flex-start;
+			}
+		}
+	}
+}
+
+.current__screenshot {
+	margin-left: 1rem; 
+	
+	.__react_component_tooltip { text-align: left; }
+
+	button {
+		@include button;
+		display: inline-flex;
+		font-size: 1rem;
+		font-weight: normal;
+		box-shadow: none;
+		cursor: pointer;
+		outline: none;
+		background: transparent;
+		padding: 0.5rem 0;
+
+		svg {
+			height: 1.1rem;
+		}
+	}
+}
