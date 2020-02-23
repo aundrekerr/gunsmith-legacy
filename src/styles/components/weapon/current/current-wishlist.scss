@@ -1,0 +1,59 @@
+.current__wishlist {
+	
+	span {
+		display: block;
+		padding: 0.5rem 0;
+		text-transform: uppercase;
+	}
+
+	svg {
+		position: relative;
+		top: 1px;
+		display: block;
+		height: 1.1rem;
+	}
+
+	form {
+		position: absolute;
+		top: -100vh;
+		left: -100vw;
+		pointer-events: none;
+		opacity: 0;
+	}
+
+	button {
+		@include button;
+		display: inline-flex;
+		font-size: 1rem;
+		font-weight: normal;
+		box-shadow: none;
+		cursor: pointer;
+		outline: none;
+		padding: 0.5rem 0.75rem;
+
+		&:before {
+			content: 'Copied!';
+			z-index: 1;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 0.5rem;
+			background: var(--color__bungie-gold);
+			opacity: 0;
+			transition: 
+				opacity 0.3s var(--transition_cubic_bezier),
+				transform 0.3s var(--transition_cubic_bezier);
+		}
+
+		&:focus {
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+}

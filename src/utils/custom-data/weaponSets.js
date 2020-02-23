@@ -130,83 +130,20 @@ export default (
 			]
 		},
 		{
-			name: 'Black Armory',
+			name: 'Leviathan',
 			weapons: [
-				603242241, // Hammerhead
-				93253474, // The Ringing Nail
-				1449922174, // Tatara Gaze
-				2575506895, // Kindled Orchid
-				421573768, // The Spiteful Fang
-				3843477312, // Blast Furnance
-				3704653637, // Stryker's Sure-Hand
-				1775804198, // Galliard-42 XN7568
-				20025671, // Tango-45 XK5094
-				1386601612, // Swift Ride XE8375
-				2824241403, // Bad News XF4354
-				2422664927, // Atalanta-D XG1992
-				3751622019, // Dead Man Walking XX7463
-				3461377698, // Baligant XU7743
-				4148143418, // Show of Force XF4865
-				1757129747, // Acantha-D XK8434
-				2817798849 // Hoosegow XE5837
-			]
-		},
-		{
-			name: 'The Menagerie',
-			weapons: [
-				2429822977, // Austringer
-				2919334548, // Imperial Decree
-				4124357815, // The Epicurean
-				79075821, // Drang (Baroque)
-				4190932264, // Beloved
-				174192097, // CALUS Mini-Tool
-				1642384931 // Fixed Odds
-			]
-		},
-		{
-			name: 'Last Wish',
-			weapons: [
-				2069224589, // One Thousand Voices
-				686951703, // The Supremacy
-				4094657108, // Techeun Force
-				654370424, // Nation of Beasts
-				568515759, // Chattering Bone
-				3799980700, // Transfiguration
-				601592879, // Age-Old Bond
-				2721249463, // Tyranny of Heaven
-				2545083870 // Apex Predator
-			]
-		},
-		{
-			name: 'Scourge of the Past',
-			weapons: [
-				2376481550, // Anarchy
-				1931556011, // No Feelings
-				1664372054, // Threat Level
-				2753269585, // Tempered Dynamo
-				2186258845 // Bellowing Giant
-			]
-		},
-		{
-			name: 'Crown of Sorrow',
-			weapons: [
-				3110698812, // Tarrabah
-				1286686760, // Gahlran's Right Hand
-				2338088853, // Calusea Noblesse
-				3861448240, // Emperor's Courtesy
-				1496419775 // Bane of Sorrow
-			]
-		},
-		{
-			name: 'Garden of Salvation',
-			weapons: [
-				48643186, // Ancient Gospel
-				2408405461, // Sacred Provenance
-				4020742303, // Prophet of Doom
-				3385326721, // Reckless Oracle
-				4095896073, // Accrued Redemption
-				2209003210, // Zealot's Reward
-				3454326177, // Omniscient Eye
+				3380742308, // Alone as a god
+				3906942101, // Conspirator
+				2505533224, // Ghost Primus
+				3325744914, // Inaugural Address
+				1018072983, // It Stared Back
+				1128225405, // Midnight Coup
+				3954531357, // Mob Justice
+				3691881271, // Sins of the Past
+				3886263130, // I Am Alive
+				2707464805, // Zenith of Your Kind
+				2084611899, // Last of the Legion
+				4288031461 // The Emperor's Envy
 			]
 		},
 		{
@@ -233,13 +170,83 @@ export default (
 			]
 		},
 		{
-			name: 'Events',
+			name: 'Last Wish',
 			weapons: [
-				3829285960, // Horror Story
-				3645283765, // BrayTech Werewolf
-				66875353, // Avalanche
-				2009106091, // The Vow
-				1506719573, // Cold Front
+				2069224589, // One Thousand Voices
+				686951703, // The Supremacy
+				4094657108, // Techeun Force
+				654370424, // Nation of Beasts
+				568515759, // Chattering Bone
+				3799980700, // Transfiguration
+				601592879, // Age-Old Bond
+				2721249463, // Tyranny of Heaven
+				2545083870 // Apex Predator
+			]
+		},
+		{
+			name: 'Black Armory',
+			weapons: [
+				603242241, // Hammerhead
+				93253474, // The Ringing Nail
+				1449922174, // Tatara Gaze
+				2575506895, // Kindled Orchid
+				421573768, // The Spiteful Fang
+				3843477312, // Blast Furnance
+				3704653637, // Stryker's Sure-Hand
+				1775804198, // Galliard-42 XN7568
+				20025671, // Tango-45 XK5094
+				1386601612, // Swift Ride XE8375
+				2824241403, // Bad News XF4354
+				2422664927, // Atalanta-D XG1992
+				3751622019, // Dead Man Walking XX7463
+				3461377698, // Baligant XU7743
+				4148143418, // Show of Force XF4865
+				1757129747, // Acantha-D XK8434
+				2817798849 // Hoosegow XE5837
+			]
+		},
+		{
+			name: 'Scourge of the Past',
+			weapons: [
+				2376481550, // Anarchy
+				1931556011, // No Feelings
+				1664372054, // Threat Level
+				2753269585, // Tempered Dynamo
+				2186258845 // Bellowing Giant
+			]
+		},
+		{
+			name: 'The Menagerie',
+			weapons: [
+				2429822977, // Austringer
+				2919334548, // Imperial Decree
+				4124357815, // The Epicurean
+				79075821, // Drang (Baroque)
+				4190932264, // Beloved
+				174192097, // CALUS Mini-Tool
+				1642384931 // Fixed Odds
+			]
+		},
+		{
+			name: 'Crown of Sorrow',
+			weapons: [
+				3110698812, // Tarrabah
+				1286686760, // Gahlran's Right Hand
+				2338088853, // Calusea Noblesse
+				3861448240, // Emperor's Courtesy
+				1496419775 // Bane of Sorrow
+			]
+		},
+		{
+			name: 'Garden of Salvation',
+			weapons: [
+				48643186, // Ancient Gospel
+				2408405461, // Sacred Provenance
+				4020742303, // Prophet of Doom
+				3385326721, // Reckless Oracle
+				4095896073, // Accrued Redemption
+				2209003210, // Zealot's Reward
+				3454326177, // Omniscient Eye
 			]
 		},
 		{
@@ -287,6 +294,16 @@ export default (
 				4166221755, // Trophy Hunter
 				1289324202, // Pyroclastic Flow
 			]
-		}
+		},
+		{
+			name: 'Events',
+			weapons: [
+				3829285960, // Horror Story
+				3645283765, // BrayTech Werewolf
+				66875353, // Avalanche
+				2009106091, // The Vow
+				1506719573, // Cold Front
+			]
+		},
 	]
 );

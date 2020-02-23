@@ -163,6 +163,7 @@ class Perks extends Component {
 													}}>
 														<div className='perk-icon' data-for={`getContent-${perk.hash}`} data-tip>
 															<img 
+																loading="lazy"
 																src={ `https://bungie.net${perkDef.displayProperties.icon}` } 
 																alt={`Destiny 2 Perk - ${perkDef.displayProperties.name}`} />
 														</div>

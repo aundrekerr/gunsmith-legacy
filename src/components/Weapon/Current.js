@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+// import ReactDOM from "react-dom";
 import { connect } from 'react-redux';
+// import html2canvas from 'html2canvas';
 import Tooltip from './../Tooltip.js';
-// import { buildStats, enhanceStatsWithPlugs } from './../../utils/stats.js';
+import Wishlist from './Wishlist';
+import Screenshot, { ScreenshotElement } from './Screenshot';
 
 class Current extends Component {
+	constructor(props) {
+    super(props);
+    this.screenshot = React.createRef();
+	}
+	
+	state = {
+		screenshotActive: false
+	}
+
+	componentDidUpdate() {
+		this.state.screenshotActive && this.generateScreenshot();
+	}
 	
 	swapTitle = (title) => {
 		switch(title) {
@@ -27,6 +42,29 @@ class Current extends Component {
 		const mwStatName = mwStatSplit[mwStatSplit.length - 1];
 		return this.swapTitle(mwStatName);
 	}
+
+	toggleScreenshotView = () => {
+		// this.setState(({screenshotActive}) => ({
+		// 	screenshotActive: screenshotActive === true ? false : true
+		// }))
+	}
+
+	generateScreenshot = () => {
+		// const node = (this.screenshot.current).querySelector('.inner-container');
+
+		// html2canvas(node, {
+		// 	proxy: 'https://aundrekerr.com/gunsmith-proxy/html2canvasproxy.php',
+		// 	// allowTaint: true,
+		// 	useCORS: true,
+		// 	// logging: true,
+		// })
+		// .then((canvas) => {
+		// 	document.body.appendChild(canvas);
+		// 	// let base64image = canvas.toDataURL("image/png");
+		// 	// console.log(base64image)
+		// });
+	}
+
 	render(){
 		const {
 			props: {
@@ -37,6 +75,9 @@ class Current extends Component {
 					mod,
 					masterwork
 				}
+			},
+			state: {
+				screenshotActive
 			}
 		} = this;
 		
@@ -48,7 +89,7 @@ class Current extends Component {
 						<ul className="perk-list">
 						{
 							Object.keys(perks).map(perk => {
-								if ( perks[perk].hash !== 0) {
+								if (perks[perk].hash !== 0) {
 									const perkDef = manifest.DestinyInventoryItemDefinition[perks[perk].hash];
 									return (
 										<li key={perk}
@@ -107,7 +148,7 @@ class Current extends Component {
 					<div className="weapon__current-mod">
 						{
 							mod.hash !== 0 
-								? <React.Fragment>
+								? <>
 										<div className="mod-icon" data-for={`getContent-current-${mod.hash}`} data-tip><img src={`https://bungie.net${mod.displayProperties.icon}`} alt="" /></div>
 										<Tooltip 
 											hash={ `current-${mod.hash}` }
@@ -116,13 +157,30 @@ class Current extends Component {
 											description={ manifest.DestinySandboxPerkDefinition[mod.perks[0].perkHash].displayProperties.description }
 											stats={ mod.investmentStats.length > 0 ? mod.investmentStats : null }
 										/>
-									</React.Fragment>
-								: <React.Fragment>
-										<div className="mod-icon"><img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" /></div>
-									</React.Fragment>
+									</>
+								: <>
+										<div className="mod-icon">
+											<img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" />
+										</div>
+									</>
 						}
 					</div>
 				</div>
+				
+				<span className="uppercase tracked-wide underline">Share</span>
+				<div className="current__share-wrapper">
+					<Wishlist />
+					<Screenshot 
+						toggleScreenshotView={this.toggleScreenshotView} />
+				</div>
+				{ 
+					screenshotActive && 
+						<div
+							ref={this.screenshot}
+							className="screenshot-container">
+							<ScreenshotElement {...this.props} />
+						</div>
+				}
 			</div>
 		)
 	}

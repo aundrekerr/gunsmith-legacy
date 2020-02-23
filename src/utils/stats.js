@@ -181,7 +181,10 @@ function interpolateStatValue (
 	}
 
 	const t = (value - start.value) / (end.value - start.value);
-	return Math.round(start.weight + t * (end.weight - start.weight));
+	// return Math.round(start.weight + t * (end.weight - start.weight));
+
+	const interpValue = start.weight + t * (end.weight - start.weight);
+  return statDisplay.statHash === 3871231066 ? Math.round(interpValue) : bankersRound(interpValue);
 }
 
 export function enhanceStatsWithPlugs (
@@ -381,4 +384,13 @@ export function buildSingleStat (
 	}
 
 	return finalPerkVal;
+}
+
+/**
+ * "Banker's rounding" rounds numbers that perfectly fall halfway between two integers to the nearest
+ * even integer, instead of always rounding up.
+ */
+function bankersRound(x: number) {
+  const r = Math.round(x);
+  return (x > 0 ? x : -x) % 1 === 0.5 ? (0 === r % 2 ? r : r - 1) : r;
 }
