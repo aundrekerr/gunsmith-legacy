@@ -3,12 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import html2canvas from 'html2canvas';
 import Tooltip from './../Tooltip.js';
-<<<<<<< Updated upstream
-// import { buildStats, enhanceStatsWithPlugs } from './../../utils/stats.js';
-=======
 import Wishlist from './Wishlist';
 import Screenshot, { ScreenshotElement } from './Screenshot';
->>>>>>> Stashed changes
 
 class Current extends Component {
 	constructor(props) {
@@ -170,8 +166,6 @@ class Current extends Component {
 						}
 					</div>
 				</div>
-<<<<<<< Updated upstream
-=======
 				
 				<span className="uppercase tracked-wide underline">Share</span>
 				<div className="current__share-wrapper">
@@ -187,7 +181,6 @@ class Current extends Component {
 							<ScreenshotElement {...this.props} />
 						</div>
 				}
->>>>>>> Stashed changes
 			</div>
 		)
 	}
