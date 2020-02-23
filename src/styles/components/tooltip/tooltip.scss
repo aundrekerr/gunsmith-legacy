@@ -104,12 +104,12 @@
 
 
 .__react_component_tooltip {
-	padding: 0;
+	padding: 0 !important;
 	margin: 0 !important;
 	background: transparent;
 	transition: none;
 
 	&:before, &:after {
-		content: none;
+		content: none !important;
 	}
 }
