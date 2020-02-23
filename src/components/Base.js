@@ -96,29 +96,10 @@ class Home extends React.Component {
 				<br/>
 				<span className="tracked-wide underline uppercase">Latest Notes</span>
 				<ul>
-					<li>Featured list will usually contain the newest weapons for the season/event.</li>
-					<li>Curated-exclusive perks aren't showing up and some images aren't loading on mobile.</li>
-				</ul>
-				<br/>
-				<span className="tracked-wide underline uppercase">New this season</span>
-				<ul>
-					<li>Perfect Paradox</li>
-					<li>Martyr's Retribution</li>
-					<li>Steelfeather Repeater</li>
-					<li>Gallant Charge</li>
-					<li>Patron of Lost Causes</li>
-					<li>Breachlight</li>
-					<li>Point of the Stag</li>
-					<li>Line in the Sand</li>
-					<li>The Old Fashioned</li>
-					<li>Elatha FR4</li>
-					<li>Uriel's Gift</li>
-					<li>Jack Queen King 3</li>
-					<li>Infinite Paths 8</li>
-					<li>Traveler's Judgement 5</li>
-					<li>Last Hope </li>
-					<li>Mos Epoch III</li>
-					<li>Pyroclastic Flow</li>
+					<li>You can now export a DIM wishlist item.</li>
+					<li>Curated-exclusive perks should now be displaying.</li>
+					<li>Live screenshot exports of your rolls in the works.</li>
+					<li>"Leviathan" added to Collections filter. Y1 Masterworks still bugged out.</li>
 				</ul>
 				<br/>
 				<span className="tracked-wide underline uppercase">More questions?</span>
