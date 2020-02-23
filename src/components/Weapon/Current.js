@@ -53,7 +53,7 @@ class Current extends Component {
 		const node = (this.screenshot.current).querySelector('.inner-container');
 
 		html2canvas(node, {
-			// proxy: 'https://aundrekerr.com/gunsmith-proxy/html2canvasproxy.php',
+			proxy: 'https://aundrekerr.com/gunsmith-proxy/html2canvasproxy.php',
 			// allowTaint: true,
 			useCORS: true,
 			// logging: true,
