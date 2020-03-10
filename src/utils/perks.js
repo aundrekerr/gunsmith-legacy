@@ -46,14 +46,14 @@ function collectPerks (
 
 		// some are just 0 and won't return anything
 		if (socket.socketTypeHash !== 0) {
-			console.log(manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash)
 
 			// If this socket category is "WEAPON PERKS" or "INTRINSIC"
 			if (
 				manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash === 4241085061
 				|| manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash === 3956125808
 			) {
-				console.log(isIntrinsic)
+
+				// Not a tracker
 				if (
 					socket.preventInitializationOnVendorPurchase === true
 					|| socket.singleInitialItemHash === 2285418970
@@ -65,7 +65,6 @@ function collectPerks (
 
 				// If this is the WEAPON FRAME or INTRINSIC PERK
 				if (isIntrinsic) {
-					console.log(perkList[slotCheck]);
 
 					perkList[slotCheck].push({	
 						// hash: socket.reusablePlugItems[0].plugItemHash,

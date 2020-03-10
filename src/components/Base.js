@@ -99,7 +99,7 @@ class Home extends React.Component {
 					<li>You can now export a DIM wishlist item.</li>
 					<li>Curated-exclusive perks should now be displaying.</li>
 					<li>Live screenshot exports of your rolls in the works.</li>
-					<li>"Leviathan" added to Collections filter. Y1 Masterworks still bugged out.</li>
+					<li>New Collections: "Seventh Seraph", "World: Worthy", and "Trials of Osiris".</li>
 				</ul>
 				<br/>
 				<span className="tracked-wide underline uppercase">More questions?</span>

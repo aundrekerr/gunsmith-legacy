@@ -5,19 +5,16 @@ import { Route } from "react-router-dom";
 const hashids = new Hashids();
 
 let curatedList = [
-	3393519051, // Perfect Paradox
-	3850168899, // Martyr's Retribution
-	1251729046, // Steelfeather Repeater
-	2723241847, // Patron of Lost Causes
-	1289997971, // Breachlight
-	946443267, // Line in the Sand
-	3569802112, // The Old Fashioned
-	410996590, // Jack Queen King 3
-	3233390913, // Infinite Paths 8
-	4149758318, // Traveler's Judgement 5
-	3622137132, // Last Hope 
-	4166221755, // Trophy Hunter
-	1289324202, // Pyroclastic Flow
+	2742838701, // Dire Promise
+	3164743584, // Eye of Sol
+	1907698332, // The Summoner
+	1697682876, // Astral Horizon
+	3037520408, // Seventh Seraph Officer Revolver
+	766323545, 	// Seventh Seraph VY-7
+	1561006927, // Seventh Seraph Carbine
+	1821724780, // Seventh Seraph CQC-12
+	2582755344, // Seventh Seraph SAW
+	3937866388, // Seventh Seraph SI-2
 ];
 
 

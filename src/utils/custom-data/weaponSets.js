@@ -5,7 +5,7 @@ export default (
 			weapons: []
 		},
 		{
-			name: 'World',
+			name: 'World: Forsaken',
 			weapons: [
 				819441402, // Misfit
 				3501969491, // The Cut and Run
@@ -19,6 +19,11 @@ export default (
 				3410721600, // Subtle Calamity
 				1327264046, // Badlander
 				218335759, // Edge Transit
+			]
+		},
+		{
+			name: 'World: Dawn',
+			weapons: [
 				3569802112, // The Old Fashioned
 				4106983932, // Elatha FR4
 				3863882743, // Uriel's Gift
@@ -27,6 +32,20 @@ export default (
 				720351794, // No Turning Back
 				301362380, // Terran Wind
 				3334276333, // Death by Scorn
+			]
+		},
+		{
+			name: 'World: Worthy',
+			weapons: [
+				2742838701, // Dire Promise
+				2742838700, // True Prophecy
+				1723380073, // Enigma's Draw
+				1786797708, // Escape Velocity
+				3055192515, // Timeline's Vertex
+				1162247618, // Jian 7 Rifle
+				2807687156, // Distant Tumulus
+				2257180473, // Interference VI
+				2857348871, // Honor's Edge
 			]
 		},
 		{
@@ -55,6 +74,17 @@ export default (
 				3356526253, // Wishbringer
 				2278995296, // Does Not Compute
 				188882152, // Last Perdition
+			]
+		},
+		{
+			name: 'Trials of Osiris',
+			weapons: [
+				2478792241, // The Scholar
+				1697682876, // Astral Horizon
+				3164743584, // Eye of Sol
+				1907698332, // The Summoner
+				679281855, // Exile's Curse
+				958384347, // Tomorrow's Answer
 			]
 		},
 		{
@@ -293,6 +323,17 @@ export default (
 				4149758318, // Traveler's Judgement 5
 				4166221755, // Trophy Hunter
 				1289324202, // Pyroclastic Flow
+			]
+		},
+		{
+			name: 'Seventh Seraph',
+			weapons: [
+				3037520408, // Seventh Seraph Officer Revolver
+				766323545, // Seventh Seraph VY-7
+				1561006927, // Seventh Seraph Carbine
+				1821724780, // Seventh Seraph CQC-12
+				2582755344, // Seventh Seraph SAW
+				3937866388, // Seventh Seraph SI-2
 			]
 		},
 		{
