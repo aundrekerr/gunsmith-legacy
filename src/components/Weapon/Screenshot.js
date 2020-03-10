@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Stats from './Stats';
 import Tooltip from './../Tooltip.js';
+import {
+	Globals
+} from './../../utils/globals';
 
 const CameraIcon = () => (
 	<svg 
@@ -49,6 +52,8 @@ export class ScreenshotElement extends React.Component {
 		}
 	}
 
+	
+
 	render(){
 		const { manifest, weapon } = this.props;
 		const { perks, masterwork, mod } = weapon;
@@ -62,19 +67,22 @@ export class ScreenshotElement extends React.Component {
 		}
 
 		return (
-			<div className="inner-container">
-				<div className={`stat-half ${this.getDamageType(manifest.DestinyInventoryItemDefinition[weapon.hash].defaultDamageType)}`}>
-					<div className="weapon__display">
-						<div className="title">
-							<span className="bold uppercase name">{ currentWeapon.displayProperties.name }</span>
-							<span className="uppercase type">{ currentWeapon.itemTypeDisplayName }</span>
-						</div>
+			<div 
+				className={`inner-container ${this.getDamageType(manifest.DestinyInventoryItemDefinition[weapon.hash].defaultDamageType)}`}
+				style={{backgroundImage: `url(https://www.bungie.net${ currentWeapon.screenshot })`}}>
+				<div className="weapon__display">
+					<div className="icon" style={{ backgroundImage: `url(https://www.bungie.net${ currentWeapon.displayProperties.icon })`}}></div>
+					<div className="title">
+						<span className="bold uppercase name">{ currentWeapon.displayProperties.name }</span>
+						<span className="uppercase type">{ currentWeapon.itemTypeDisplayName }</span>
 					</div>
+				</div>
+				<div className="stat-half">
 					<Stats />
 				</div>
 				
 				<div className="weapon__current-perks">
-				<span className="uppercase tracked-wide underline">Perks</span>
+				{/* <span className="uppercase tracked-wide underline">Perks</span> */}
 					<ul className="perk-list">
 						{
 							Object.keys(perks).map(perk => {
@@ -90,7 +98,7 @@ export class ScreenshotElement extends React.Component {
 										}>
 											<div className='perk-icon'>
 												<img 
-													src={ `https://bungie.net${perkDef.displayProperties.icon}` } 
+													src={ `https://www.bungie.net${perkDef.displayProperties.icon}` } 
 													alt={`Destiny 2 Perk - ${perkDef.displayProperties.name}`} />
 											</div>
 											<span>{perkDef.displayProperties.name}</span>
@@ -111,13 +119,13 @@ export class ScreenshotElement extends React.Component {
 							masterwork.hash !== 0 
 								? <li>
 										<div className="masterwork-icon">
-											<img src={`https://bungie.net${masterwork.displayProperties.icon}`} alt="" />
+											<img src={`https://www.bungie.net${masterwork.displayProperties.icon}`} alt="" />
 										</div>
 										<span>{this.swapTitle(mwStatName)} Masterwork</span>
 									</li>
 								: <li>
 										<div className="masterwork-icon">
-											<img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" />
+											<img src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" />
 										</div>
 									</li>
 						}
@@ -125,13 +133,13 @@ export class ScreenshotElement extends React.Component {
 							mod.hash !== 0 
 								? <li>
 										<div className="mod-icon">
-											<img src={`https://bungie.net${mod.displayProperties.icon}`} alt="" />
+											<img src={`https://www.bungie.net${mod.displayProperties.icon}`} alt="" />
 										</div>
 										<span>{mod.displayProperties.name}</span>
 									</li>
 								: <li>
 										<div className="mod-icon">
-											<img src={`https://bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" />
+											<img src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[1176735155].displayProperties.icon}`} alt="" />
 										</div>
 									</li>
 						}
@@ -151,9 +159,10 @@ class Screenshot extends Component {
 					data-for={`getContent-screenshot`} 
 					data-tip>
 						<button
-							onClick={() => {
-								this.props.toggleScreenshotView();
-							}}>
+							// onClick={() => {
+							// 	this.props.toggleScreenshotView();
+							// }}
+							>
 							<CameraIcon />
 							<Tooltip 
 								hash={`screenshot`}

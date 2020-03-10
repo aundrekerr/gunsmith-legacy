@@ -32,21 +32,28 @@ function collectPerks (
 	socketEntries.map(socket => {
 	
 		// Check if perk is intrinsic. Weapon frames and exotic perks).
-		let intrinsicHash = socket.singleInitialItemHash;
+		// let intrinsicHash = socket.singleInitialItemHash;
+		let intrinsicHash = socket.socketTypeHash;
+		
 		let isIntrinsic;
 
 		if ( intrinsicHash !== 0) {
-			isIntrinsic = manifest.DestinyInventoryItemDefinition[socket.singleInitialItemHash].itemCategoryHashes.includes(2237038328);
+			// isIntrinsic = manifest.DestinyInventoryItemDefinition[socket.singleInitialItemHash].itemCategoryHashes.includes(2237038328);
+			isIntrinsic = socket.socketTypeHash === 3956125808 ? true : false
 		} else {
 			isIntrinsic = false;
 		}
 
 		// some are just 0 and won't return anything
 		if (socket.socketTypeHash !== 0) {
+			console.log(manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash)
 
-			// If this socket category is "WEAPON PERKS"
-			if (manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash === 4241085061) {
-
+			// If this socket category is "WEAPON PERKS" or "INTRINSIC"
+			if (
+				manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash === 4241085061
+				|| manifest.DestinySocketTypeDefinition[socket.socketTypeHash].socketCategoryHash === 3956125808
+			) {
+				console.log(isIntrinsic)
 				if (
 					socket.preventInitializationOnVendorPurchase === true
 					|| socket.singleInitialItemHash === 2285418970
@@ -54,8 +61,11 @@ function collectPerks (
 					return null;
 				}
 
+				// console.log(isIntrinsic)
+
 				// If this is the WEAPON FRAME or INTRINSIC PERK
 				if (isIntrinsic) {
+					console.log(perkList[slotCheck]);
 
 					perkList[slotCheck].push({	
 						// hash: socket.reusablePlugItems[0].plugItemHash,
