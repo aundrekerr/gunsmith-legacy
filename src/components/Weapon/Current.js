@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 // import ReactDOM from "react-dom";
 import { connect } from 'react-redux';
 import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
 import Tooltip from './../Tooltip.js';
 import Wishlist from './Wishlist';
 import Screenshot, { ScreenshotElement } from './Screenshot';
-import {Globals} from '../../utils/globals.js';
 
 class Current extends Component {
 	constructor(props) {
@@ -51,6 +51,7 @@ class Current extends Component {
 	}
 
 	generateScreenshot = () => {
+		const { manifest, weapon } = this.props;
 		const node = (this.screenshot.current).querySelector('.inner-container');
 
 		html2canvas(node, {
@@ -62,7 +63,17 @@ class Current extends Component {
 			(this.screenshot.current).querySelector('.screenshot-end').appendChild(canvas);
 			// let base64image = canvas.toDataURL("image/png");
 			// console.log(base64image)
+			const currentWeapon = manifest.DestinyInventoryItemDefinition[weapon.hash];
+			
+			setTimeout(() => {
+				canvas.toBlob(blob => saveAs(blob, `${currentWeapon.displayProperties.name}.png`));
+			}, 1000)
+			
+			this.setState({
+				screenshotActive: false
+			})
 		});
+
 	}
 
 	render(){

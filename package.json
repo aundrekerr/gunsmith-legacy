@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "file-saver": "^2.0.2",
     "hashids": "^2.0.1",
     "html2canvas": "^1.0.0-rc.5",
     "node-sass": "^4.13.1",

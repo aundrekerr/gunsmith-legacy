@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Stats from './Stats';
 import Tooltip from './../Tooltip.js';
-import {
-	Globals
-} from './../../utils/globals';
 
 const CameraIcon = () => (
 	<svg 
@@ -83,18 +80,31 @@ export class ScreenshotElement extends React.Component {
 				
 				<div className="weapon__current-perks">
 				{/* <span className="uppercase tracked-wide underline">Perks</span> */}
+					<ul className="perk-names">
+						{
+							Object.keys(perks).map(perk => {
+								if ( perks[perk].hash !== 0) {
+									const perkDef = manifest.DestinyInventoryItemDefinition[perks[perk].hash];
+									return <li key={perk} className={`screenshot-perk ${0}`}><span>{perkDef.displayProperties.name}</span></li>
+								}
+							})
+						}
+						{ masterwork.hash !== 0 && <li className="screenshot-masterwork"><span>{this.swapTitle(mwStatName)} Masterwork</span></li> }
+						{ mod.hash !== 0 && <li className="screenshot-mod"><span>{mod.displayProperties.name}</span></li> }
+					</ul>
 					<ul className="perk-list">
 						{
 							Object.keys(perks).map(perk => {
 								if ( perks[perk].hash !== 0) {
 									const perkDef = manifest.DestinyInventoryItemDefinition[perks[perk].hash];
+									
 									return (
 										<li key={perk}
-										className={
-											`${ perks[perk].isCurated ? 'curated' : '' } 
-											${ perks[perk].curatedOnly ? 'curated-only ' : '' } 
-											${ perks[perk].isIntrinsic ? 'frame ' : '' }
-											node`
+											className={
+												`${ perks[perk].isCurated ? 'curated' : '' } 
+												${ perks[perk].curatedOnly ? 'curated-only ' : '' } 
+												${ perks[perk].isIntrinsic ? 'frame ' : '' }
+												node`
 										}>
 											<div className='perk-icon'>
 												<img 
@@ -107,7 +117,7 @@ export class ScreenshotElement extends React.Component {
 								} else {
 									return (
 										<li key={perk}
-											className="node">
+											className="node no-perk">
 											<div className='perk-icon'></div>
 										</li>
 									)
@@ -159,15 +169,15 @@ class Screenshot extends Component {
 					data-for={`getContent-screenshot`} 
 					data-tip>
 						<button
-							// onClick={() => {
-							// 	this.props.toggleScreenshotView();
-							// }}
+							onClick={() => {
+								this.props.toggleScreenshotView();
+							}}
 							>
 							<CameraIcon />
 							<Tooltip 
 								hash={`screenshot`}
 								title={ 'Save Screenshot' }
-								description={ 'Coming soon.' }
+								description={ 'Save an image of the roll you just made. Experimental.' }
 							/>
 						</button>
 				</div>
