@@ -177,7 +177,7 @@ class Screenshot extends Component {
 							<Tooltip 
 								hash={`screenshot`}
 								title={ 'Save Screenshot' }
-								description={ 'Save an image of the roll you just made. Experimental.' }
+								description={ 'Save an image of the roll you just made. Experimental, best on desktop.' }
 							/>
 						</button>
 				</div>
