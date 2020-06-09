@@ -5,16 +5,25 @@ import { Route } from "react-router-dom";
 const hashids = new Hashids();
 
 let curatedList = [
-	2742838701, // Dire Promise
-	3164743584, // Eye of Sol
-	1907698332, // The Summoner
-	1697682876, // Astral Horizon
-	3037520408, // Seventh Seraph Officer Revolver
-	766323545, 	// Seventh Seraph VY-7
-	1561006927, // Seventh Seraph Carbine
-	1821724780, // Seventh Seraph CQC-12
-	2582755344, // Seventh Seraph SAW
-	3937866388, // Seventh Seraph SI-2
+	3143732432, // False Promises
+	1690783811, // The Forward Path
+	1216130969, // Cold Denial
+	211938782, // The Whispering Slab
+	607191995, // Hollow Words
+	1096206669, // IKELOS Shotgun
+	1200824700, // IKELOS HC
+	2222560548, // IKELOS SMG
+	1253087083, // IKELOS Sniper
+	2742490609, // Death Adder 
+	65611680, // The Fool's Remedy
+	3616586446, // First In, Last Out
+	1271343896, // Widow's Bite
+	407621213, // Berenger's Memory
+	3669616453, // Hoosegow
+	3629968765, // Negative Space
+	35794111, // Temptation's Hook
+	614426548, //Falling Guillotine
+
 ];
 
 
