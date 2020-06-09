@@ -14,6 +14,7 @@ let curatedList = [
 	1200824700, // IKELOS HC
 	2222560548, // IKELOS SMG
 	1253087083, // IKELOS Sniper
+	1835747805, // Nature of the Beast
 	2742490609, // Death Adder 
 	65611680, // The Fool's Remedy
 	3616586446, // First In, Last Out
