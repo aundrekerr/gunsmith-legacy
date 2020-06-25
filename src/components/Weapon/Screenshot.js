@@ -86,6 +86,8 @@ export class ScreenshotElement extends React.Component {
 								if ( perks[perk].hash !== 0) {
 									const perkDef = manifest.DestinyInventoryItemDefinition[perks[perk].hash];
 									return <li key={perk} className={`screenshot-perk ${0}`}><span>{perkDef.displayProperties.name}</span></li>
+								} else {
+									return false;
 								}
 							})
 						}
