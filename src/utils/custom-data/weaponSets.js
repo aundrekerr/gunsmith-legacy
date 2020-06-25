@@ -172,6 +172,7 @@ export default (
 			weapons: [
 				65611680, // The Fool's Remedy
 				1690783811, // The Forward Path
+				3434944005, // Point of the Stag
 				1982711279, // Talons of the Eagle
 				1280933460, // Claws of the Wolf
 				1357080535, // Breath of the Dragon
@@ -343,7 +344,6 @@ export default (
 				1706206669, // Gallant Charge
 				2723241847, // Patron of Lost Causes
 				1289997971, // Breachlight
-				3434944005, // Point of the Stag
 				946443267, // Line in the Sand
 				410996590, // Jack Queen King 3
 				3233390913, // Infinite Paths 8
