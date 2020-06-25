@@ -11,6 +11,8 @@ let curatedList = [
 	1216130969, // Cold Denial
 	211938782, // The Whispering Slab
 	607191995, // Hollow Words
+	65611680, // The Fool's Remedy
+	1690783811, // The Forward Path
 	1096206669, // IKELOS Shotgun
 	1200824700, // IKELOS HC
 	2222560548, // IKELOS SMG
@@ -18,13 +20,6 @@ let curatedList = [
 	1835747805, // Nature of the Beast
 	2742490609, // Death Adder 
 	1946491241, // Truthteller
-	3616586446, // First In, Last Out
-	1271343896, // Widow's Bite
-	407621213, // Berenger's Memory
-	3669616453, // Hoosegow
-	3629968765, // Negative Space
-	65611680, // The Fool's Remedy
-	1690783811, // The Forward Path
 ];
 
 
