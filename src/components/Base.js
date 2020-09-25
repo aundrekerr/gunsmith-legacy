@@ -96,10 +96,7 @@ class Home extends React.Component {
 				<br/>
 				<span className="tracked-wide underline uppercase">Latest Notes</span>
 				<ul>
-					<li>You can now export a DIM wishlist item.</li>
-					<li>Curated-exclusive perks should now be displaying.</li>
-					<li>Live screenshot exports of your rolls in the works.</li>
-					<li>New Collections: "Seventh Seraph", "World: Worthy", and "Trials of Osiris".</li>
+					<li>There's a beta for a <strong>NEW</strong> version of the site. Give it a shot. <a href="https://beta.d2gunsmith.com">https://beta.d2gunsmith.com</a>.</li>
 				</ul>
 				<br/>
 				<span className="tracked-wide underline uppercase">More questions?</span>
